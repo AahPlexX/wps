@@ -8,8 +8,8 @@ Status values: `planned`, `in_progress`, `blocked`, `verified`, `prohibited`.
 
 ## Resume here
 
-Current state: WPS-001 through WPS-017 are verified. The deployed map uses an accessible dependency-free starts-with country typeahead from the first typed character, with keyboard/pointer selection and existing URL/globe integration preserved.  
-Next action: future work starts from `docs/PRD.md`, this tracker, and `docs/DECISIONS.md`; re-verify political-source freshness before changing country data.  
+Current state: WPS-001 through WPS-017 are verified. WPS-018 and WPS-019 are in progress to add client-side redeploy detection, an Update/Cancel modal, and mandatory patch-version releases beginning from baseline 1.0.0.  
+Next action: complete WPS-T008 by establishing the 1.0.1 version manifest contract, then wire and live-verify the update prompt on both routes.  
 Blockers: none.
 
 | ID | Status | Evidence / next evidence |
@@ -31,3 +31,5 @@ Blockers: none.
 | WPS-015 | verified | Reconciled records were re-read on `main`; branch inventory contained only `main`, open PR inventory was empty, and post-documentation Pages run `39681845777` passed build and deployment steps. |
 | WPS-016 | verified | Established constitutional-field-guide system is documented in `DESIGN.md`; live screenshots were reviewed at 390, 1366, and 1920 widths with no material redesign drift found. |
 | WPS-017 | verified | Red recorded in run `39683845722`; final run `39684424181` passed validation/build/deploy. Live QA proved `J` => Jamaica/Japan/Jordan, `Ja` => Jamaica/Japan, keyboard selection => Jamaica + `?country=Jamaica`, pointer selection => Japan + `?country=Japan`, and no 390px horizontal overflow. |
+| WPS-018 | in_progress | Next evidence: version comparator red→green, deployed `version.json`, synthetic newer-version browser QA on both routes, Update/Cancel behavior, session dismissal, and mobile overflow check. |
+| WPS-019 | in_progress | Baseline `package.json` is 1.0.0. This significant update must release as 1.0.1 with package/lock/build manifest values synchronized and the permanent increment rule recorded in `AGENTS.md`. |
