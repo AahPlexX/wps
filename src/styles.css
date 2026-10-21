@@ -314,3 +314,50 @@ tbody tr:last-child td { border-bottom: 0; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
 }
+
+.update-dialog {
+  width: min(calc(100% - 2rem), 30rem);
+  max-width: none;
+  border: 1px solid var(--ink);
+  border-radius: .55rem;
+  background: var(--paper);
+  color: var(--ink);
+  padding: 0;
+  box-shadow: 0 1.25rem 4rem rgb(24 35 31 / 22%);
+}
+.update-dialog::backdrop { background: rgb(24 35 31 / 46%); }
+.update-dialog__body { padding: clamp(1.25rem, 4vw, 2rem); }
+.update-dialog__eyebrow {
+  margin: 0 0 .45rem;
+  color: var(--accent);
+  font-size: .78rem;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.update-dialog h2 {
+  margin: 0;
+  font: 600 clamp(1.7rem, 4vw, 2.35rem)/1.08 var(--serif);
+  letter-spacing: -.025em;
+}
+.update-dialog__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .7rem;
+  margin-top: 1.5rem;
+}
+.update-dialog__actions button {
+  min-height: 46px;
+  min-width: 7.5rem;
+  border: 1px solid var(--ink);
+  border-radius: .45rem;
+  padding: .65rem 1rem;
+  font-weight: 800;
+}
+.update-dialog__update { background: var(--ink); color: #fff; }
+.update-dialog__cancel { background: var(--paper); color: var(--ink); }
+.update-dialog__update:hover,
+.update-dialog__update:active { background: var(--accent); border-color: var(--accent); }
+.update-dialog__cancel:hover,
+.update-dialog__cancel:active { background: var(--accent-soft); }
+
