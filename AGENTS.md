@@ -25,6 +25,7 @@ This file is the repository instruction entry point. Keep agent instructions her
 - The public client must not expose external source links or citations. Development sources belong in `docs/SOURCES.md`.
 - Keep accessibility, data integrity, and keyboard/pointer parity intact when simplifying.
 - Keep UI state that affects the visible result deep-linkable in the URL.
+- Treat feature additions and other meaningful user-visible behavior changes as significant releases unless the owner explicitly says otherwise. Before deploying each significant release, increment the `package.json` patch version by exactly one (`+0.0.1`) and keep `package-lock.json` synchronized. Versioning starts from baseline `1.0.0` on 2026-10-21.
 - Run the validation commands declared in `package.json`; do not substitute remembered commands.
 - Update tracker, tasks, decisions, and affected docs in the same coherent change as implementation. Never mark work verified without fresh validation evidence.
 - No secrets, placeholders, speculative scaffolding, or dead extension points.
