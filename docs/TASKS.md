@@ -8,8 +8,8 @@ Task statuses use the values defined in `docs/TRACKER.md`.
 
 ## Resume here
 
-Current state: production migration and WPS-001 through WPS-017 are verified. WPS-018 and WPS-019 are active for deployment-version detection, the client update modal, and release-version policy.  
-Next action: finish WPS-T008 by releasing this significant update as 1.0.1, validating the emitted version manifest, and live-testing the update prompt on directory and map routes.  
+Current state: WPS-001 through WPS-019 are verified and release 1.0.1 is deployed. The generated version manifest and root-mounted update prompt are live on both directory and map routes.  
+Next action: future significant updates must increment the package patch version exactly once before deployment; otherwise begin from the PRD/tracker/decisions and verify source freshness before political-data changes.  
 Blockers: none.
 
 | Task | Status | Covers | Completion evidence |
@@ -21,4 +21,4 @@ Blockers: none.
 | WPS-T005 Configure GitHub Pages deployment | verified | WPS-014 | Pages enabled with workflow build type; run `39680561196` build/deploy succeeded and live routes render. |
 | WPS-T006 Reconcile final evidence and handoff state | verified | WPS-015 | Re-read governing records; only `main` exists, open PR inventory is empty, and post-documentation run `39681845777` passed build and deployment steps. |
 | WPS-T007 Add map country starts-with typeahead | verified | WPS-017 | Red run `39683845722`; final validation/deploy run `39684424181`; live one/two-character filtering, keyboard/pointer selection, URL state, and 390px overflow checks passed. |
-| WPS-T008 Add deployment update prompt and release-version contract | in_progress | WPS-018–019 | Plan committed at `docs/plans/2026-10-21-deployment-update-prompt.md`; next evidence is 1.0.1 red→green tests, emitted manifest, final Pages run, and live synthetic-newer-version modal QA. |
+| WPS-T008 Add deployment update prompt and release-version contract | verified | WPS-018–019 | Release 1.0.1 package/lock/build manifest synchronized; red run `39693354911`; Pages run `39694159614` passed validation/build/deploy; live same/newer-version, Cancel/later-version, and centered 390/1920 layout checks passed. |

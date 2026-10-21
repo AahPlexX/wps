@@ -58,7 +58,7 @@ The directory uses wide reference bands and a grouped table that becomes stacked
 
 ## Elevation & Depth
 
-The system is flat by default. Borders, tonal surfaces, and the rendered globe establish hierarchy. Backdrop blur is reserved for sticky controls or map instruction overlays where content remains legible behind them.
+The system is flat by default. Borders, tonal surfaces, and the rendered globe establish hierarchy. Backdrop blur is reserved for sticky controls or map instruction overlays where content remains legible behind them. A solid translucent backdrop is permitted for the deployment-update modal because it must temporarily block interaction until the user chooses Update or Cancel.
 
 ## Shapes
 
@@ -68,10 +68,13 @@ Controls use restrained rounded corners. The globe stage has a 16px radius on la
 
 Buttons and links use the same dark-ink active state. Every interactive element has a visible focus ring. Category buttons encode selected state with filled constitutional ink; the globe uses category color only on geopolitical geometry.
 
+The deployment-update prompt uses the native modal `dialog` element, is explicitly centered within the viewport, reuses the paper/ink/accent tokens, and contains only a short update label, the available version, and the `Update` and `Cancel` actions. It must remain within a one-rem viewport gutter on phones and must not add release-note copy or decorative chrome.
+
 ## Do's and Don'ts
 
 - Preserve open reference layouts instead of repeating generic cards.
 - Reserve category colors for data meaning.
 - Keep the 3D globe as the map page’s dominant visual element.
 - Keep labels in sentence case and actions explicit.
+- Keep deployment update prompts concise: available version plus Update/Cancel only.
 - Do not add external source links or citation chrome to the public client.

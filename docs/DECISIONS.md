@@ -6,6 +6,9 @@
 
 Newest first. One decision fact per line.
 
+- 2026-10-21 — Treat `package.json.version` as the application release-version source of truth, beginning at 1.0.0; every significant release increments only the patch by exactly one, and the deployment-update feature releases as 1.0.1.
+- 2026-10-21 — Emit `/wps/version.json` from the same package version embedded as `__APP_VERSION__`; clients check it without cache on mount, every five minutes, and on window focus.
+- 2026-10-21 — Use a native modal `dialog` for newer-deployment notification; Update reloads the current URL, while Cancel session-dismisses only that offered version so a later version can prompt.
 - 2026-10-21 — Replace the map page native country `datalist` with a dependency-free ARIA combobox using locale-aware country-name prefix matching from the first typed character.
 - 2026-10-21 — Publish GitHub Pages from the GitHub Actions workflow build type at `https://aahplexx.github.io/wps/`.
 - 2026-10-21 — Keep the permanent Pages workflow read-only for repository contents and install exclusively with `npm ci` from the committed lockfile.

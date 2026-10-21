@@ -8,8 +8,8 @@ Status values: `planned`, `in_progress`, `blocked`, `verified`, `prohibited`.
 
 ## Resume here
 
-Current state: WPS-001 through WPS-017 are verified. WPS-018 and WPS-019 are in progress to add client-side redeploy detection, an Update/Cancel modal, and mandatory patch-version releases beginning from baseline 1.0.0.  
-Next action: complete WPS-T008 by establishing the 1.0.1 version manifest contract, then wire and live-verify the update prompt on both routes.  
+Current state: WPS-001 through WPS-019 are verified. Release 1.0.1 is deployed with an accessible client-side newer-version prompt, a live generated version manifest, and the permanent significant-release patch-increment rule.  
+Next action: future work starts from `docs/PRD.md`, this tracker, and `docs/DECISIONS.md`; increment the patch version exactly once before deploying each future significant update, and re-verify political-source freshness before changing country data.  
 Blockers: none.
 
 | ID | Status | Evidence / next evidence |
@@ -28,8 +28,8 @@ Blockers: none.
 | WPS-012 | verified | Production build uses local JSON and the Canvas 2D globe; `package.json` contains no runtime visualization/network-data dependency. |
 | WPS-013 | verified | `package-lock.json` is committed; Pages run `39680561196` passed `npm ci`, TypeScript, tests, and Vite 8.3.4 production build. |
 | WPS-014 | verified | GitHub Pages uses the workflow build type; Pages run `39680561196` build and deploy jobs succeeded; live routes render. |
-| WPS-015 | verified | Reconciled records were re-read on `main`; branch inventory contained only `main`, open PR inventory was empty, and post-documentation Pages run `39681845777` passed build and deployment steps. |
+| WPS-015 | verified | Reconciled records are current on `main`; project handoff sources identify verified requirements, decisions, active version policy, and next-step constraints. |
 | WPS-016 | verified | Established constitutional-field-guide system is documented in `DESIGN.md`; live screenshots were reviewed at 390, 1366, and 1920 widths with no material redesign drift found. |
 | WPS-017 | verified | Red recorded in run `39683845722`; final run `39684424181` passed validation/build/deploy. Live QA proved `J` => Jamaica/Japan/Jordan, `Ja` => Jamaica/Japan, keyboard selection => Jamaica + `?country=Jamaica`, pointer selection => Japan + `?country=Japan`, and no 390px horizontal overflow. |
-| WPS-018 | in_progress | Next evidence: version comparator red→green, deployed `version.json`, synthetic newer-version browser QA on both routes, Update/Cancel behavior, session dismissal, and mobile overflow check. |
-| WPS-019 | in_progress | Baseline `package.json` is 1.0.0. This significant update must release as 1.0.1 with package/lock/build manifest values synchronized and the permanent increment rule recorded in `AGENTS.md`. |
+| WPS-018 | verified | Red run `39693354911` failed only because `src/lib/version.ts` was absent; all eight tests then passed. Pages run `39694159614` passed validation/build/deploy. Live directory QA proved real 1.0.1 stays silent, synthetic 1.0.2 opens with exactly Update/Cancel, Cancel session-dismisses 1.0.2, and synthetic 1.0.3 prompts afterward. Live map QA proved the same modal at 390px with no horizontal overflow; post-fix modal bounds were centered at x=16/width=358 on 390px and x=720/width=480 on 1920px. |
+| WPS-019 | verified | `package.json` and lockfile are synchronized at 1.0.1; Vite embeds that package version as `__APP_VERSION__` and emits the same live `/wps/version.json`; `AGENTS.md` permanently requires +0.0.1 for each future significant release. |
