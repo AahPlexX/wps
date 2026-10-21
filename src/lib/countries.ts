@@ -42,6 +42,16 @@ export const GROUP_COLORS: Record<PoliticalGroup, string> = {
   'Other / transitional': '#a45b48',
 }
 
+export function countryTypeaheadMatches(
+  countryNames: string[],
+  query: string,
+  locale = 'en-US',
+) {
+  const prefix = query.trim().toLocaleLowerCase(locale)
+  if (!prefix) return []
+  return countryNames.filter((country) => country.toLocaleLowerCase(locale).startsWith(prefix))
+}
+
 export function filterCountries(
   countries: CountryRecord[],
   filters: DirectoryFilters,
