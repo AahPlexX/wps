@@ -1,5 +1,6 @@
 import { useId, useMemo, useState, type RefObject } from 'react'
 import { countryTypeaheadMatches } from '../lib/countries'
+import './CountryTypeahead.css'
 
 interface CountryTypeaheadProps {
   countryNames: string[]
