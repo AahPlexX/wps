@@ -8,8 +8,8 @@ Status values: `planned`, `in_progress`, `blocked`, `verified`, `prohibited`.
 
 ## Resume here
 
-Current state: the Vite/React/Tailwind/TypeScript site is deployed from `main` at `https://aahplexx.github.io/wps/`; the permanent Pages workflow, committed lockfile, data validation, focused tests, production build, live interactions, and three-width visual checks have fresh evidence from 2026-10-21.  
-Next action: complete the post-write documentation/branch verification for WPS-015, then treat `docs/PRD.md` plus this tracker as the continuation point for future data or product work.  
+Current state: WPS-001 through WPS-016 are verified. The Vite/React/Tailwind/TypeScript site is deployed from `main` at `https://aahplexx.github.io/wps/`; the permanent Pages workflow, committed lockfile, data validation, focused tests, production build, live interactions, three-width visual checks, and post-write repository-state checks have fresh evidence from 2026-10-21.  
+Next action: for future work, start from `docs/PRD.md` and this tracker; re-verify current political data before changing the shared dataset.  
 Blockers: none.
 
 | ID | Status | Evidence / next evidence |
@@ -28,5 +28,5 @@ Blockers: none.
 | WPS-012 | verified | Production build uses local JSON and the Canvas 2D globe; `package.json` contains no runtime visualization/network-data dependency. |
 | WPS-013 | verified | `package-lock.json` is committed; Pages run `39680561196` passed `npm ci`, TypeScript, tests, and Vite 8.3.4 production build. |
 | WPS-014 | verified | GitHub Pages uses the workflow build type; Pages run `39680561196` build and deploy jobs succeeded; live routes render. |
-| WPS-015 | in_progress | Governing records are reconciled in this documentation commit; post-write re-read and final branch/PR check remain. |
+| WPS-015 | verified | Reconciled records were re-read on `main`; branch inventory contained only `main`, open PR inventory was empty, and post-documentation Pages run `39681845777` passed build and deployment steps. |
 | WPS-016 | verified | Established constitutional-field-guide system is documented in `DESIGN.md`; live screenshots were reviewed at 390, 1366, and 1920 widths with no material redesign drift found. |
