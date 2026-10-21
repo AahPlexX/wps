@@ -13,7 +13,7 @@
   overflow-y: auto;
   overscroll-behavior: contain;
   border: 1px solid #aeb7b2;
-  border-radius: var(--rounded-control, .45rem);
+  border-radius: .45rem;
   background: var(--paper);
 }
 

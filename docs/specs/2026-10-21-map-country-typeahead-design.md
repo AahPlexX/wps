@@ -23,7 +23,7 @@ Replace the map page's native country `datalist` with a predictable accessible t
 
 ## Architecture
 
-Keep matching as a pure helper in `src/lib/countryTypeahead.ts` so it can be tested without DOM tooling. Add a focused `CountryTypeahead` React component that owns popup/open/active-index interaction state and delegates committed selection to `MapPage`. `MapPage` remains responsible for selected-country state, URL synchronization, globe animation, and explicit exact-match validation.
+Keep matching as the pure `countryTypeaheadMatches` helper in the existing `src/lib/countries.ts` country-utility module so it can be tested without DOM tooling or a new abstraction. `CountryTypeahead` owns popup/open/active-index interaction state and delegates committed selection to `MapPage`. `MapPage` remains responsible for selected-country state, URL synchronization, globe animation, and explicit exact-match validation.
 
 ## Visual treatment
 

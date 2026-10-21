@@ -8,8 +8,8 @@ Status values: `planned`, `in_progress`, `blocked`, `verified`, `prohibited`.
 
 ## Resume here
 
-Current state: WPS-001 through WPS-016 are verified. WPS-017 map country typeahead implementation is on `main`; prefix matching has recorded red/green test evidence and final combined CI/browser validation is in progress.  
-Next action: finish the latest `main` workflow and deployed typeahead browser QA, then reconcile WPS-017 evidence and close WPS-T007.  
+Current state: WPS-001 through WPS-017 are verified. The deployed map uses an accessible dependency-free starts-with country typeahead from the first typed character, with keyboard/pointer selection and existing URL/globe integration preserved.  
+Next action: future work starts from `docs/PRD.md`, this tracker, and `docs/DECISIONS.md`; re-verify political-source freshness before changing country data.  
 Blockers: none.
 
 | ID | Status | Evidence / next evidence |
@@ -30,4 +30,4 @@ Blockers: none.
 | WPS-014 | verified | GitHub Pages uses the workflow build type; Pages run `39680561196` build and deploy jobs succeeded; live routes render. |
 | WPS-015 | verified | Reconciled records were re-read on `main`; branch inventory contained only `main`, open PR inventory was empty, and post-documentation Pages run `39681845777` passed build and deployment steps. |
 | WPS-016 | verified | Established constitutional-field-guide system is documented in `DESIGN.md`; live screenshots were reviewed at 390, 1366, and 1920 widths with no material redesign drift found. |
-| WPS-017 | in_progress | Run `39683845722` recorded the expected failing typeahead test; run `39684002080` passed the matcher/build gate. Final combined UI workflow and live one-character/keyboard/pointer QA remain. |
+| WPS-017 | verified | Red recorded in run `39683845722`; final run `39684424181` passed validation/build/deploy. Live QA proved `J` => Jamaica/Japan/Jordan, `Ja` => Jamaica/Japan, keyboard selection => Jamaica + `?country=Jamaica`, pointer selection => Japan + `?country=Japan`, and no 390px horizontal overflow. |

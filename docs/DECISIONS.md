@@ -6,6 +6,7 @@
 
 Newest first. One decision fact per line.
 
+- 2026-10-21 — Replace the map page native country `datalist` with a dependency-free ARIA combobox using locale-aware country-name prefix matching from the first typed character.
 - 2026-10-21 — Publish GitHub Pages from the GitHub Actions workflow build type at `https://aahplexx.github.io/wps/`.
 - 2026-10-21 — Keep the permanent Pages workflow read-only for repository contents and install exclusively with `npm ci` from the committed lockfile.
 - 2026-10-21 — Keep Vite client ambient types in `src/vite-env.d.ts` and explicit non-null DOM/canvas aliases in the globe effect so TypeScript 7 strict checking remains enabled.
