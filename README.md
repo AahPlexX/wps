@@ -2,13 +2,18 @@
 
 Responsive GitHub Pages reference for comparing the top political assignment, government structure, and national political hierarchy of 195 sovereign states. The site has a searchable directory and a separate interactive 3D globe.
 
+## Live site
+
+- `https://aahplexx.github.io/wps/` — searchable political-structure directory.
+- `https://aahplexx.github.io/wps/map/` — interactive orthographic globe and country detail view.
+
 ## Stack
 
 Vite + TypeScript + React + Tailwind CSS + JSON. Runtime political and map data are local; the published site has no external runtime dependency or source-link requirement.
 
 ## Local commands
 
-- `npm install` — install the exact top-level versions in `package.json` and create/update the lockfile.
+- `npm ci` — install the committed dependency graph from `package-lock.json`.
 - `npm run dev` — start Vite locally.
 - `npm test` — run focused Node tests for directory and globe logic.
 - `npm run validate:data` — assert the 195-state dataset and map-target invariants.

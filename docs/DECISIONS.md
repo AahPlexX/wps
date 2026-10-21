@@ -6,6 +6,9 @@
 
 Newest first. One decision fact per line.
 
+- 2026-10-21 — Publish GitHub Pages from the GitHub Actions workflow build type at `https://aahplexx.github.io/wps/`.
+- 2026-10-21 — Keep the permanent Pages workflow read-only for repository contents and install exclusively with `npm ci` from the committed lockfile.
+- 2026-10-21 — Keep Vite client ambient types in `src/vite-env.d.ts` and explicit non-null DOM/canvas aliases in the globe effect so TypeScript 7 strict checking remains enabled.
 - 2026-10-20 — Use two Vite HTML entry points (`index.html` and `map/index.html`) instead of a client router so GitHub Pages deep links work without SPA fallback configuration.
 - 2026-10-20 — Keep political facts in the shared `src/data/countries/*.json` dataset; both surfaces consume it through `src/data/index.ts`.
 - 2026-10-20 — Keep map geometry in `src/data/mapFeatures/*.json` and aggregate it through `src/data/index.ts`; 166 states use simplified polygons and 29 use geographic point targets because the 1:110m source has no polygon for them.

@@ -4,27 +4,29 @@
 
 # Requirement tracker
 
+Status values: `planned`, `in_progress`, `blocked`, `verified`, `prohibited`.
+
 ## Resume here
 
-Current state: the standalone directory and globe have been converted locally into the requested React/Vite/Tailwind/TypeScript architecture with shared JSON data; remote integration and fresh CI/browser validation are next.  
-Next action: integrate the scaffold on `main`, let CI create the lockfile and run validation, then reconcile this tracker with workflow/deployment evidence.  
-Blockers: GitHub Pages repository enablement may require the Pages setting to be switched to GitHub Actions if it is not already enabled.
+Current state: the Vite/React/Tailwind/TypeScript site is deployed from `main` at `https://aahplexx.github.io/wps/`; the permanent Pages workflow, committed lockfile, data validation, focused tests, production build, live interactions, and three-width visual checks have fresh evidence from 2026-10-21.  
+Next action: complete the post-write documentation/branch verification for WPS-015, then treat `docs/PRD.md` plus this tracker as the continuation point for future data or product work.  
+Blockers: none.
 
 | ID | Status | Evidence / next evidence |
 | --- | --- | --- |
-| WPS-001 | in_progress | Local `scripts/validate-data.mjs`; run through repository validation after install. |
-| WPS-002 | in_progress | `src/pages/HomePage.tsx`; browser QA pending. |
-| WPS-003 | in_progress | `src/lib/countries.ts` + HomePage popstate handling; tests pending. |
-| WPS-004 | in_progress | `groupCountries`; focused Node test pending. |
-| WPS-005 | in_progress | `src/styles.css` phone table reflow; 390px QA pending. |
-| WPS-006 | in_progress | `src/components/GlobeCanvas.tsx`; browser interaction QA pending. |
-| WPS-007 | in_progress | Map state and `CountryDetail`; browser/deep-link QA pending. |
-| WPS-008 | in_progress | Local map JSON contains 195 targets; repository validation pending. |
-| WPS-009 | in_progress | Search + semantic detail are implemented; accessibility QA pending. |
-| WPS-010 | in_progress | Markup/CSS implemented; browser accessibility QA pending. |
-| WPS-011 | in_progress | No public external links authored; production audit pending. |
-| WPS-012 | in_progress | Local JSON + Canvas 2D implementation; production bundle audit pending. |
-| WPS-013 | in_progress | Exact package versions authored; lockfile and production build pending. |
-| WPS-014 | in_progress | Workflow authored; live Pages verification pending. |
-| WPS-015 | in_progress | Governing records created; final same-commit reconciliation pending. |
-| WPS-016 | in_progress | `DESIGN.md` extracted from standalone visual system; screenshot QA pending. |
+| WPS-001 | verified | Pages run `39680561196`: `validate:data` confirmed 195 political records and 195 map targets. |
+| WPS-002 | verified | Live directory screenshots at 390×844, 1366×900, and 1920×1080; live Monarch interaction rendered 42 countries. |
+| WPS-003 | verified | Six-test CI suite includes directory URL-state round-trip; live Monarch interaction resolved `?category=Monarch`. |
+| WPS-004 | verified | Six-test CI suite confirms deterministic alphabetical grouping; live Monarch result lists the 42-state group. |
+| WPS-005 | verified | Live 390px DOM measurement: `clientWidth=390`, `scrollWidth=390`, 195 rendered country rows. |
+| WPS-006 | verified | `GlobeCanvas.tsx` + globe tests + live map renders at 390×844, 1366×900, and 1920×1080; reset interaction verified on the deployed globe. |
+| WPS-007 | verified | Live UAE deep link rendered the shared political detail; Reset preserved `?country=United+Arab+Emirates` and the UAE selection. |
+| WPS-008 | verified | Pages run `39680561196`: validation confirmed 195 map targets including 29 point-target microstates. |
+| WPS-009 | verified | Live map exposes country search plus semantic country detail outside the canvas; UAE detail was retrievable as rendered HTML. |
+| WPS-010 | verified | Semantic controls/landmarks and focus/reduced-motion styles are in source; live mobile/desktop renders completed without clipped required content. |
+| WPS-011 | verified | Live 390px DOM measurements found zero cross-origin links on both directory and map. |
+| WPS-012 | verified | Production build uses local JSON and the Canvas 2D globe; `package.json` contains no runtime visualization/network-data dependency. |
+| WPS-013 | verified | `package-lock.json` is committed; Pages run `39680561196` passed `npm ci`, TypeScript, tests, and Vite 8.3.4 production build. |
+| WPS-014 | verified | GitHub Pages uses the workflow build type; Pages run `39680561196` build and deploy jobs succeeded; live routes render. |
+| WPS-015 | in_progress | Governing records are reconciled in this documentation commit; post-write re-read and final branch/PR check remain. |
+| WPS-016 | verified | Established constitutional-field-guide system is documented in `DESIGN.md`; live screenshots were reviewed at 390, 1366, and 1920 widths with no material redesign drift found. |
