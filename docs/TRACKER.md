@@ -8,8 +8,8 @@ Status values: `planned`, `in_progress`, `blocked`, `verified`, `prohibited`.
 
 ## Resume here
 
-Current state: WPS-001 through WPS-016 are verified. The Vite/React/Tailwind/TypeScript site is deployed from `main` at `https://aahplexx.github.io/wps/`; the permanent Pages workflow, committed lockfile, data validation, focused tests, production build, live interactions, three-width visual checks, and post-write repository-state checks have fresh evidence from 2026-10-21.  
-Next action: for future work, start from `docs/PRD.md` and this tracker; re-verify current political data before changing the shared dataset.  
+Current state: WPS-001 through WPS-016 are verified. WPS-017 map country typeahead implementation is on `main`; prefix matching has recorded red/green test evidence and final combined CI/browser validation is in progress.  
+Next action: finish the latest `main` workflow and deployed typeahead browser QA, then reconcile WPS-017 evidence and close WPS-T007.  
 Blockers: none.
 
 | ID | Status | Evidence / next evidence |
@@ -30,3 +30,4 @@ Blockers: none.
 | WPS-014 | verified | GitHub Pages uses the workflow build type; Pages run `39680561196` build and deploy jobs succeeded; live routes render. |
 | WPS-015 | verified | Reconciled records were re-read on `main`; branch inventory contained only `main`, open PR inventory was empty, and post-documentation Pages run `39681845777` passed build and deployment steps. |
 | WPS-016 | verified | Established constitutional-field-guide system is documented in `DESIGN.md`; live screenshots were reviewed at 390, 1366, and 1920 widths with no material redesign drift found. |
+| WPS-017 | in_progress | Run `39683845722` recorded the expected failing typeahead test; run `39684002080` passed the matcher/build gate. Final combined UI workflow and live one-character/keyboard/pointer QA remain. |
