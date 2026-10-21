@@ -23,7 +23,8 @@ jobs:
           base64 --decode /tmp/wps.tar.xz.b64 > /tmp/wps.tar.xz
           echo "6d46479421f03c4012a75560975aa7fad193b3d006c0f5b3b668b9e14fd59e20  /tmp/wps.tar.xz" | sha256sum --check -
           tar -xJf /tmp/wps.tar.xz -C .
-          rm -rf .bootstrap .github/workflows/bootstrap.yml
+          rm -rf .bootstrap
+          rm -f .github/workflows/deploy.yml
       - name: Commit migration
         shell: bash
         run: |
