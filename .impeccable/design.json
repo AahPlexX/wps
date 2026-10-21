@@ -1,0 +1,7 @@
+{
+  "name": "World Political Structures",
+  "northStar": "The Constitutional Field Guide",
+  "mode": "read-operate",
+  "surfaces": ["directory", "3d-map"],
+  "source": "DESIGN.md"
+}
