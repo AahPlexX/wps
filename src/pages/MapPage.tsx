@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { countries, mapFeatures as features } from '../data'
 import { CountryDetail } from '../components/CountryDetail'
+import { CountryTypeahead } from '../components/CountryTypeahead'
 import { GlobeCanvas } from '../components/GlobeCanvas'
 import { SiteHeader } from '../components/SiteHeader'
 import {
@@ -11,6 +12,7 @@ import {
 
 const collator = new Intl.Collator(navigator.language || 'en-US', { sensitivity: 'base' })
 const sortedCountries = [...countries].sort((a, b) => collator.compare(a.country, b.country))
+const sortedCountryNames = sortedCountries.map((country) => country.country)
 const countryByName = new Map(countries.map((country) => [country.country, country]))
 
 function countryFromUrl() {
@@ -58,7 +60,7 @@ export function MapPage() {
       inputRef.current?.setCustomValidity('')
       return
     }
-    inputRef.current?.setCustomValidity('Choose a country from the list.')
+    inputRef.current?.setCustomValidity('Choose a country from the matching suggestions.')
     inputRef.current?.reportValidity()
     inputRef.current?.setCustomValidity('')
     inputRef.current?.focus()
@@ -84,30 +86,14 @@ export function MapPage() {
         <div className="map-layout">
           <section className="min-w-0" aria-label="Interactive globe">
             <div className="map-controls">
-              <label className="field min-w-0">
-                <span>Find a country</span>
-                <input
-                  ref={inputRef}
-                  type="search"
-                  name="country"
-                  list="country-list"
-                  autoComplete="off"
-                  spellCheck={false}
-                  value={query}
-                  onChange={(event) => setQuery(event.target.value)}
-                  onKeyDown={(event) => {
-                    if (event.key === 'Enter') {
-                      event.preventDefault()
-                      findCountry()
-                    }
-                  }}
-                />
-                <datalist id="country-list">
-                  {sortedCountries.map((country) => (
-                    <option key={country.country} value={country.country} />
-                  ))}
-                </datalist>
-              </label>
+              <CountryTypeahead
+                countryNames={sortedCountryNames}
+                value={query}
+                onValueChange={setQuery}
+                onSelect={selectCountry}
+                onSubmit={findCountry}
+                inputRef={inputRef}
+              />
               <button type="button" onClick={findCountry}>
                 Show country
               </button>
