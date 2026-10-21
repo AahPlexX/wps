@@ -29,27 +29,31 @@ jobs:
 
           path = Path('src/components/GlobeCanvas.tsx')
           text = path.read_text()
-          old = """    const canvas = canvasRef.current
-              const stage = stageRef.current
-              const tooltip = tooltipRef.current
-              if (!canvas || !stage || !tooltip) return
-
-              const ctx = canvas.getContext('2d', { alpha: false })
-              if (!ctx) return
-          """
-          new = """    const canvasNode = canvasRef.current
-              const stageNode = stageRef.current
-              const tooltipNode = tooltipRef.current
-              if (!canvasNode || !stageNode || !tooltipNode) return
-
-              const context = canvasNode.getContext('2d', { alpha: false })
-              if (!context) return
-
-              const canvas: HTMLCanvasElement = canvasNode
-              const stage: HTMLDivElement = stageNode
-              const tooltip: HTMLDivElement = tooltipNode
-              const ctx: CanvasRenderingContext2D = context
-          """
+          old = '\n'.join([
+              '    const canvas = canvasRef.current',
+              '    const stage = stageRef.current',
+              '    const tooltip = tooltipRef.current',
+              '    if (!canvas || !stage || !tooltip) return',
+              '',
+              "    const ctx = canvas.getContext('2d', { alpha: false })",
+              '    if (!ctx) return',
+              '',
+          ])
+          new = '\n'.join([
+              '    const canvasNode = canvasRef.current',
+              '    const stageNode = stageRef.current',
+              '    const tooltipNode = tooltipRef.current',
+              '    if (!canvasNode || !stageNode || !tooltipNode) return',
+              '',
+              "    const context = canvasNode.getContext('2d', { alpha: false })",
+              '    if (!context) return',
+              '',
+              '    const canvas: HTMLCanvasElement = canvasNode',
+              '    const stage: HTMLDivElement = stageNode',
+              '    const tooltip: HTMLDivElement = tooltipNode',
+              '    const ctx: CanvasRenderingContext2D = context',
+              '',
+          ])
           if old in text:
               path.write_text(text.replace(old, new, 1))
           elif 'const canvasNode = canvasRef.current' not in text:
