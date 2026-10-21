@@ -1,0 +1,50 @@
+.typeahead-field {
+  position: relative;
+  z-index: 12;
+}
+
+.typeahead-listbox {
+  position: absolute;
+  top: calc(100% + .35rem);
+  left: 0;
+  right: 0;
+  z-index: 40;
+  max-height: min(22rem, 48vh);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  border: 1px solid #aeb7b2;
+  border-radius: var(--rounded-control, .45rem);
+  background: var(--paper);
+}
+
+.typeahead-option {
+  display: block;
+  width: 100%;
+  min-height: 44px;
+  border: 0;
+  border-bottom: 1px solid var(--rule);
+  border-radius: 0;
+  background: var(--paper);
+  padding: .65rem .75rem;
+  text-align: left;
+  color: var(--ink);
+}
+
+.typeahead-option:last-child {
+  border-bottom: 0;
+}
+
+.typeahead-option:hover {
+  background: var(--accent-soft);
+}
+
+.typeahead-option[aria-selected="true"] {
+  background: var(--ink);
+  color: #fff;
+}
+
+@media (max-width: 640px) {
+  .typeahead-listbox {
+    max-height: min(19rem, 42vh);
+  }
+}
