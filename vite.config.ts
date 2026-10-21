@@ -1,16 +1,7 @@
-import { readFileSync } from 'node:fs'
-import { fileURLToPath, URL } from 'node:url'
 import tailwindcss from '@tailwindcss/vite'
 import react from '@vitejs/plugin-react'
 import { defineConfig, type Plugin } from 'vite'
-
-interface PackageMetadata {
-  version: string
-}
-
-const packageMetadata = JSON.parse(
-  readFileSync(fileURLToPath(new URL('./package.json', import.meta.url)), 'utf8'),
-) as PackageMetadata
+import packageMetadata from './package.json' with { type: 'json' }
 
 function versionManifestPlugin(version: string): Plugin {
   return {
