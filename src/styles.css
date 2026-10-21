@@ -318,6 +318,8 @@ tbody tr:last-child td { border-bottom: 0; }
 .update-dialog {
   width: min(calc(100% - 2rem), 30rem);
   max-width: none;
+  max-height: calc(100dvh - 2rem);
+  margin: auto;
   border: 1px solid var(--ink);
   border-radius: .55rem;
   background: var(--paper);
