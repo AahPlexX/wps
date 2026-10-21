@@ -28,3 +28,4 @@ World Political Structures is a GitHub Pages reference site at `aahplexx.github.
 | WPS-014 | GitHub Pages builds from `main` with Vite base `/wps/`. | Deployment workflow builds `dist`, publishes the Pages artifact, and the live `/wps/` and `/wps/map/` routes load. |
 | WPS-015 | Repository documentation stays resumable at every stop. | `TRACKER.md` and `TASKS.md` contain current “Resume here” entries and fresh evidence. |
 | WPS-016 | The established constitutional-field-guide visual system is preserved across directory and map surfaces. | `DESIGN.md` tokens match the implemented palette/type/layout and browser screenshots show one coherent system. |
+| WPS-017 | The map country search provides an accessible starts-with typeahead from the first typed character. | Focused matcher test passes; browser QA proves one-character live filtering, keyboard/pointer selection, and preserved `?country=` deep-link behavior. |
