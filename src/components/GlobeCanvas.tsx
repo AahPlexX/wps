@@ -45,13 +45,18 @@ export function GlobeCanvas({ countries, features, selectedCountry, onSelect, re
   }, [resetVersion])
 
   useEffect(() => {
-    const canvas = canvasRef.current
-    const stage = stageRef.current
-    const tooltip = tooltipRef.current
-    if (!canvas || !stage || !tooltip) return
+    const canvasNode = canvasRef.current
+    const stageNode = stageRef.current
+    const tooltipNode = tooltipRef.current
+    if (!canvasNode || !stageNode || !tooltipNode) return
 
-    const ctx = canvas.getContext('2d', { alpha: false })
-    if (!ctx) return
+    const context = canvasNode.getContext('2d', { alpha: false })
+    if (!context) return
+
+    const canvas: HTMLCanvasElement = canvasNode
+    const stage: HTMLDivElement = stageNode
+    const tooltip: HTMLDivElement = tooltipNode
+    const ctx: CanvasRenderingContext2D = context
 
     const dataByCountry = new Map(countries.map((country) => [country.country, country]))
     const featureByCountry = new Map(features.map((feature) => [feature.country, feature]))
