@@ -6,7 +6,7 @@
 
 ## Status values
 
-Use only `planned`, `in_progress`, `verified`, `awaiting_human`, `prohibited`, or `deferred` in requirement and task status fields.
+Use only `planned`, `in_progress`, `blocked`, `verified`, `awaiting_human`, `prohibited`, or `deferred` in requirement and task status fields.
 
 ## Work-unit records
 
