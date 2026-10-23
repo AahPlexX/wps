@@ -8,8 +8,8 @@ Status values: `planned`, `in_progress`, `blocked`, `verified`, `prohibited`.
 
 ## Resume here
 
-Current state: WPS-001 through WPS-019 are verified. WPS-020 is in progress; red run `39959077809` failed only because `src/lib/historyState.ts` was absent, and the 1.0.2 implementation is now on `main` awaiting full CI/deploy and live browser verification.  
-Next action: verify the 1.0.2 validation/deploy run, then live-test directory/search/map Back and Forward behavior before marking WPS-020 verified.  
+Current state: WPS-001 through WPS-020 are verified and release 1.0.2 is deployed. Browser Back/Forward now restores URL-backed directory filters, coalesced search edits, and map country selection without rewriting restored history.  
+Next action: future work starts from `docs/PRD.md`, this tracker, and `docs/DECISIONS.md`; increment the patch version exactly once before each future significant release, and re-verify political-source freshness before changing country data.  
 Blockers: none.
 
 | ID | Status | Evidence / next evidence |
@@ -33,4 +33,4 @@ Blockers: none.
 | WPS-017 | verified | Red recorded in run `39683845722`; final run `39684424181` passed validation/build/deploy. Live QA proved `J` => Jamaica/Japan/Jordan, `Ja` => Jamaica/Japan, keyboard selection => Jamaica + `?country=Jamaica`, pointer selection => Japan + `?country=Japan`, and no 390px horizontal overflow. |
 | WPS-018 | verified | Red run `39693354911` failed only because `src/lib/version.ts` was absent; all eight tests then passed. Pages run `39694159614` passed validation/build/deploy. Live directory QA proved real 1.0.1 stays silent, synthetic 1.0.2 opens with exactly Update/Cancel, Cancel session-dismisses 1.0.2, and synthetic 1.0.3 prompts afterward. Live map QA proved the same modal at 390px with no horizontal overflow; post-fix modal bounds were centered at x=16/width=358 on 390px and x=720/width=480 on 1920px. |
 | WPS-019 | verified | `package.json` and lockfile are synchronized at 1.0.1; Vite embeds that package version as `__APP_VERSION__` and emits the same live `/wps/version.json`; `AGENTS.md` permanently requires +0.0.1 for each future significant release. |
-| WPS-020 | in_progress | Live 2026-10-23 audit: directory Monarch selection and map United States→Japan each changed the URL while `history.length` stayed 2→2. Red run `39959077809` then failed only because the new history helper was absent. The 1.0.2 implementation now awaits green CI/deploy plus live Back/Forward verification. |
+| WPS-020 | verified | Baseline live audit proved directory Monarch selection and map United States→Japan each stayed at history length 2→2. Red run `39959077809` failed only on the intentionally absent history helper. Green Pages run `39959315276` passed 195-record validation, all 10 tests, TypeScript/Vite build, and deployment at 1.0.2. Live QA then proved directory Monarch selection 2→3 with Back/Forward restoring 195↔42 results; `m`→`mo`→`mon` search stayed at one added entry and Back restored the empty 195-country state; map United States→Japan 2→3 with Back/Forward restoring URL, input, and detail. Browser captures at 390, 1366, and 1920px had no horizontal overflow, and live `/wps/version.json` reported 1.0.2. |

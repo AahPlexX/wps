@@ -44,17 +44,17 @@ Expected: non-zero exit because `src/lib/historyState.ts` does not exist; existi
 
 Add only the two pure helpers. `searchEditHistoryMode` returns `replace` when `editActive` is true and `push` otherwise. `mapCountryUrl` uses `URLSearchParams`, overwrites `country`, preserves unrelated parameters, and appends the supplied hash.
 
-- [ ] **Step 4: Verify the focused pass**
+- [x] **Step 4: Verify the focused pass**
 
 Run: `npm test -- --test-name-pattern="history"`
 Expected: the history-policy test passes with zero failures.
 
-- [ ] **Step 5: Run the affected integration check**
+- [x] **Step 5: Run the affected integration check**
 
 Run: `npm test`
 Expected: all existing tests plus the new history-policy tests pass.
 
-- [ ] **Step 6: Continue directly into Task 2**
+- [x] **Step 6: Continue directly into Task 2**
 
 Do not leave the helper unused in a deployed build; integrate it with both pages in the same 1.0.2 release change.
 
@@ -86,16 +86,16 @@ Separate state restoration from user selection. User selection pushes `mapCountr
 
 Change the root package version from 1.0.1 to 1.0.2 in `package.json` and the synchronized root entries in `package-lock.json`. Do not hand-edit `version.json`; the existing Vite build emits it from the package version.
 
-- [ ] **Step 4: Run the full repository gate**
+- [x] **Step 4: Run the full repository gate**
 
 Run: `npm run validate`
 Expected: data validation passes, every focused test passes, TypeScript succeeds, and the Vite production build completes at version 1.0.2.
 
-- [ ] **Step 5: Live browser regression QA**
+- [x] **Step 5: Live browser regression QA**
 
 After Pages deploys, verify directory category selection increases `history.length`, Back restores the prior filter URL/result and Forward restores the selection. Verify one contiguous search edit session adds one history entry rather than one per character. Verify map United States→Japan increases `history.length`, Back restores United States in URL/input/detail and Forward restores Japan. Repeat overflow checks at 390px and confirm no visual layout change at 1366px and 1920px.
 
-- [ ] **Step 6: Reconcile repository records**
+- [x] **Step 6: Reconcile repository records**
 
 Mark WPS-020 and WPS-T009 verified only after fresh CI/deploy and live browser evidence. Record the final 1.0.2 run ID and resume state, then confirm only `main` exists and no pull requests are open.
 
