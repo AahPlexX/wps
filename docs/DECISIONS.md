@@ -6,6 +6,8 @@
 
 Newest first. One decision fact per line.
 
+- 2026-10-23 — User-driven directory filter changes and map country selections create browser-history entries; `popstate` restores application state without writing a new history entry.
+- 2026-10-23 — Consecutive directory-search keystrokes within one focus/edit session share one history entry: the first edit pushes and later edits replace until blur or `popstate` ends that edit session.
 - 2026-10-21 — Treat `package.json.version` as the application release-version source of truth, beginning at 1.0.0; every significant release increments only the patch by exactly one, and the deployment-update feature releases as 1.0.1.
 - 2026-10-21 — Emit `/wps/version.json` from the same package version embedded as `__APP_VERSION__`; clients check it without cache on mount, every five minutes, and on window focus.
 - 2026-10-21 — Use a native modal `dialog` for newer-deployment notification; Update reloads the current URL, while Cancel session-dismisses only that offered version so a later version can prompt.
