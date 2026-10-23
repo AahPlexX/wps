@@ -111,6 +111,7 @@ export function CountryTypeahead({
               id={`${listboxId}-option-${index}`}
               type="button"
               role="option"
+              tabIndex={-1}
               aria-selected={index === activeIndex}
               className="typeahead-option"
               onMouseEnter={() => setActiveIndex(index)}

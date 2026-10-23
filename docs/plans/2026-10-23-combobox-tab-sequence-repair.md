@@ -32,7 +32,7 @@
 
 Use the live 1.0.3 `J` focus audit as red evidence: Jamaica, Japan, and Jordan each render with `tabIndex=0`; moving DOM focus from the combobox to Jamaica causes input blur, popup removal, and `document.activeElement === body`.
 
-- [ ] **Step 2: Implement the minimum repair**
+- [x] **Step 2: Implement the minimum repair**
 
 Add `tabIndex={-1}` to the existing option button. Do not change roles, active-index state, blur handling, pointer handling, or selection logic.
 
@@ -53,7 +53,7 @@ With `J` entered, verify all visible option nodes report `tabIndex=-1`, the inpu
 - Consumes: repository validation scripts, existing version-manifest build contract, WPS-022 acceptance test.
 - Produces: deployed release 1.0.4 with verified focus behavior and resumable handoff state.
 
-- [ ] **Step 1: Increment the significant release once**
+- [x] **Step 1: Increment the significant release once**
 
 Change only the root application version from 1.0.3 to 1.0.4 in `package.json` and synchronized root package entries in `package-lock.json`.
 
