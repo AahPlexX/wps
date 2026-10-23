@@ -6,6 +6,9 @@
 
 Newest first. One decision fact per line.
 
+- 2026-10-23 — Keep `SiteHeader` as the sole page-level banner landmark; the directory hero is content, not a second banner.
+- 2026-10-23 — Treat the map detail category-color dot as decorative because the adjacent detail list already exposes the category in text; label the map detail complementary landmark from its country-detail heading.
+- 2026-10-23 — Constrain each directory group grid item with `min-width: 0` so the 1050px reference table scrolls inside `.table-wrap` instead of increasing page width at zoomed/intermediate viewports.
 - 2026-10-23 — User-driven directory filter changes and map country selections create browser-history entries; `popstate` restores application state without writing a new history entry.
 - 2026-10-23 — Consecutive directory-search keystrokes within one focus/edit session share one history entry: the first edit pushes and later edits replace until blur or `popstate` ends that edit session.
 - 2026-10-21 — Treat `package.json.version` as the application release-version source of truth, beginning at 1.0.0; every significant release increments only the patch by exactly one, and the deployment-update feature releases as 1.0.1.
