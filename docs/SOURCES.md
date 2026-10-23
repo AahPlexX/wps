@@ -23,3 +23,5 @@ As-of date: 2026-10-20.
 - MDN: pointer events and Canvas accessibility guidance; significant canvas information has semantic HTML backing.
 
 No external source URL or citation is rendered by the public site.
+
+- 2026-10-23 — W3C WAI-ARIA Authoring Practices Guide, Combobox Pattern and editable combobox examples: popup descendants are excluded from the page Tab sequence, and DOM focus remains on the combobox when `aria-activedescendant` represents visual focus in a listbox. https://www.w3.org/WAI/ARIA/apg/patterns/combobox/

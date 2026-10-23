@@ -6,6 +6,7 @@
 
 Newest first. One decision fact per line.
 
+- 2026-10-23 — Keep map typeahead listbox options pointer-activatable but set their native button `tabIndex` to -1 so the `aria-activedescendant` combobox remains the only sequential keyboard focus target while the popup is open.
 - 2026-10-23 — Keep `SiteHeader` as the sole page-level banner landmark; the directory hero is content, not a second banner.
 - 2026-10-23 — Treat the map detail category-color dot as decorative because the adjacent detail list already exposes the category in text; label the map detail complementary landmark from its country-detail heading.
 - 2026-10-23 — Constrain each directory group grid item with `min-width: 0` so the 1050px reference table scrolls inside `.table-wrap` instead of increasing page width at zoomed/intermediate viewports.
