@@ -176,7 +176,7 @@ input:hover, select:hover { border-color: var(--ink); }
 .result-line a { font-weight: 700; }
 
 .directory-sections { display: grid; gap: 1.75rem; padding-top: 1.2rem; }
-.directory-group { border-top: 2px solid var(--ink); }
+.directory-group { min-width: 0; border-top: 2px solid var(--ink); }
 .group-heading {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;

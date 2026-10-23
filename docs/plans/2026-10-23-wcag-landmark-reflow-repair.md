@@ -32,11 +32,11 @@
 - Consumes: existing `SiteHeader`, `CountryDetail`, and `country-detail-title` heading ID.
 - Produces: one page-level banner on the directory; a labelled map complementary landmark; no prohibited accessible name on the decorative category swatch.
 
-- [ ] **Step 1: Preserve the recorded failing behavioral evidence**
+- [x] **Step 1: Preserve the recorded failing behavioral evidence**
 
 Use live scan `2f2c3199-862b-438c-9347-7f9b11c20bbd` as the red directory semantic baseline and scan `45db3587-8a8e-4e30-ad7c-0e477b647605` as the red map semantic baseline. No new unit test is added because this change contains no new logic; the public accessibility scan is the direct behavioral seam.
 
-- [ ] **Step 2: Implement the minimum semantic repair**
+- [x] **Step 2: Implement the minimum semantic repair**
 
 Change the directory hero wrapper from a top-level `<header>` to `<section aria-labelledby="directory-title">` and give its existing `h1` `id="directory-title"`. In `CountryDetail`, replace the category swatch `aria-label` with `aria-hidden="true"`. On the existing map detail `<aside>`, add `aria-labelledby="country-detail-title"`; keep `aria-live="polite"` unchanged.
 
@@ -54,11 +54,11 @@ Expected: TypeScript and Vite production build complete with zero errors and unc
 - Consumes: `.directory-sections`, `.directory-group`, `.table-wrap`, and the existing 1050px table minimum width.
 - Produces: a shrinkable directory grid item whose wide table scroll remains local to `.table-wrap`.
 
-- [ ] **Step 1: Preserve the recorded failing reflow evidence**
+- [x] **Step 1: Preserve the recorded failing reflow evidence**
 
 Use the live 720px CSS-viewport probe as the red baseline: document `clientWidth=720`, document `scrollWidth=1072`, `.directory-group` width 1050px.
 
-- [ ] **Step 2: Implement the minimum CSS repair**
+- [x] **Step 2: Implement the minimum CSS repair**
 
 Add `min-width: 0` to `.directory-group`. Do not change the table minimum width, mobile table-to-record reflow breakpoint, global overflow, or category-index scrolling.
 
@@ -79,7 +79,7 @@ At a 720px CSS viewport, assert document `scrollWidth <= clientWidth`, `.directo
 - Consumes: repository validation scripts, Pages workflow, WPS-021 acceptance test, existing version-manifest build contract.
 - Produces: deployed release 1.0.3 with verified accessibility/reflow evidence and resumable handoff records.
 
-- [ ] **Step 1: Increment the significant release once**
+- [x] **Step 1: Increment the significant release once**
 
 Change only the root application version from 1.0.2 to 1.0.3 in `package.json` and the synchronized root package entries in `package-lock.json`. Generated `dist/version.json` remains build-owned.
 

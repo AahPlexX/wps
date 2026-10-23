@@ -61,9 +61,9 @@ export function HomePage() {
         Skip to directory
       </a>
       <SiteHeader active="directory" />
-      <header className="hero site-shell">
+      <section className="hero site-shell" aria-labelledby="directory-title">
         <div className="hero-grid">
-          <h1>World Political Structures</h1>
+          <h1 id="directory-title">World Political Structures</h1>
           <div className="hero-copy">
             <p>
               Compare the top state office, form of government, and political hierarchy of all{' '}
@@ -76,7 +76,7 @@ export function HomePage() {
             <p className="date-line">Current reference date: October 20, 2026.</p>
           </div>
         </div>
-      </header>
+      </section>
 
       <nav className="site-shell category-index" aria-label="Filter by top political assignment">
         {GROUP_ORDER.map((group) => {

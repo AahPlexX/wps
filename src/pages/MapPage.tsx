@@ -146,7 +146,7 @@ export function MapPage() {
             />
           </section>
 
-          <aside className="map-detail-column" aria-live="polite">
+          <aside className="map-detail-column" aria-labelledby="country-detail-title" aria-live="polite">
             <CountryDetail country={selected} />
             <p className="map-scale-note">
               The globe uses simplified 1:110m world geometry. Twenty-nine sovereign microstates and small-island

@@ -10,7 +10,7 @@ export function CountryDetail({ country }: { country: CountryRecord }) {
         <span
           className="mt-2 size-3.5 shrink-0 rounded-full"
           style={{ backgroundColor: GROUP_COLORS[country.group] }}
-          aria-label={country.group}
+          aria-hidden="true"
         />
       </div>
       <dl className="detail-grid">
