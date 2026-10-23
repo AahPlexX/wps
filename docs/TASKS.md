@@ -8,8 +8,8 @@ Task statuses use the values defined in `docs/DOCUMENTATION.md`.
 
 ## Resume here
 
-Current state: WPS-001 through WPS-020 are verified; WPS-T010 is in progress with the WPS-021 source repair and repository release metadata prepared at 1.0.3.  
-Next action: require the full 1.0.3 validation/deploy gate, repeat independent accessibility scans and responsive overflow checks, then reconcile WPS-021 evidence and handoff state.  
+Current state: WPS-001 through WPS-021 are verified and release 1.0.3 is deployed. WPS-T010 is complete with red→green accessibility scans, full repository validation, and live 720px/390px/1920px reflow evidence.  
+Next action: future significant updates must increment the package patch version to 1.0.4 before deployment; otherwise begin from the PRD/tracker/decisions and verify source freshness before political-data changes.  
 Blockers: none.
 
 | Task | Status | Covers | Completion evidence |
@@ -23,4 +23,4 @@ Blockers: none.
 | WPS-T007 Add map country starts-with typeahead | verified | WPS-017 | Red run `39683845722`; final validation/deploy run `39684424181`; live one/two-character filtering, keyboard/pointer selection, URL state, and 390px overflow checks passed. |
 | WPS-T008 Add deployment update prompt and release-version contract | verified | WPS-018–019 | Release 1.0.1 package/lock/build manifest synchronized; red run `39693354911`; Pages run `39694159614` passed validation/build/deploy; live same/newer-version, Cancel/later-version, and centered 390/1920 layout checks passed. |
 | WPS-T009 Repair browser history for URL-backed state | verified | WPS-020 | Red run `39959077809`; green Pages run `39959315276` with 10/10 tests and successful deploy; live directory/search/map Back/Forward checks and 390/1366/1920 overflow checks passed at version 1.0.2. |
-| WPS-T010 Repair WCAG landmarks, ARIA naming, and 200% reflow | in_progress | WPS-021 | Red evidence: directory scan `2f2c3199-862b-438c-9347-7f9b11c20bbd`, map scan `45db3587-8a8e-4e30-ad7c-0e477b647605`, and 720px browser probe with document width 1072px. Minimal markup/CSS repair and the 1.0.3 version bump are prepared; next: validation/deploy, clean repeat scans, and responsive overflow verification. |
+| WPS-T010 Repair WCAG landmarks, ARIA naming, and 200% reflow | verified | WPS-021 | Red scans `2f2c3199-862b-438c-9347-7f9b11c20bbd` / `45db3587-8a8e-4e30-ad7c-0e477b647605`; Pages run `40037514768` passed validation/build/deploy at 1.0.3; green scans `2fe619f9-4c37-4c0b-8b09-c8d9e78a894e` / `e3ea0cf1-388e-424c-9946-3cb36635dfb8` reported 0 failures; live 720px document width was 720/720 with table overflow scoped at 677/1050, and 390/1920 guard checks had no page overflow. |

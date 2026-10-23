@@ -40,7 +40,7 @@ Use live scan `2f2c3199-862b-438c-9347-7f9b11c20bbd` as the red directory semant
 
 Change the directory hero wrapper from a top-level `<header>` to `<section aria-labelledby="directory-title">` and give its existing `h1` `id="directory-title"`. In `CountryDetail`, replace the category swatch `aria-label` with `aria-hidden="true"`. On the existing map detail `<aside>`, add `aria-labelledby="country-detail-title"`; keep `aria-live="polite"` unchanged.
 
-- [ ] **Step 3: Run the affected integration check**
+- [x] **Step 3: Run the affected integration check**
 
 Run: `npm run build`
 Expected: TypeScript and Vite production build complete with zero errors and unchanged route structure.
@@ -62,7 +62,7 @@ Use the live 720px CSS-viewport probe as the red baseline: document `clientWidth
 
 Add `min-width: 0` to `.directory-group`. Do not change the table minimum width, mobile table-to-record reflow breakpoint, global overflow, or category-index scrolling.
 
-- [ ] **Step 3: Verify the focused behavior after deployment**
+- [x] **Step 3: Verify the focused behavior after deployment**
 
 At a 720px CSS viewport, assert document `scrollWidth <= clientWidth`, `.directory-group` fits the page shell, and `.table-wrap.scrollWidth > .table-wrap.clientWidth` so the table remains independently scrollable.
 
@@ -83,19 +83,27 @@ At a 720px CSS viewport, assert document `scrollWidth <= clientWidth`, `.directo
 
 Change only the root application version from 1.0.2 to 1.0.3 in `package.json` and the synchronized root package entries in `package-lock.json`. Generated `dist/version.json` remains build-owned.
 
-- [ ] **Step 2: Run the full repository gate**
+- [x] **Step 2: Run the full repository gate**
 
 Run: `npm run validate`
 Expected: 195-record/map validation succeeds, all existing tests pass, TypeScript succeeds, and Vite builds 1.0.3.
 
-- [ ] **Step 3: Deploy and verify the public behavior**
+- [x] **Step 3: Deploy and verify the public behavior**
 
 Require the GitHub Pages workflow for the implementation commit to pass build and deploy. Repeat independent accessibility scans on both public routes; the four targeted failures must be absent. Repeat the 720px reflow audit plus representative 390px and 1920px width checks with no page-level horizontal overflow.
 
-- [ ] **Step 4: Reconcile handoff state**
+- [x] **Step 4: Reconcile handoff state**
 
 Mark WPS-021 and WPS-T010 verified only after fresh deploy/live evidence. Record the final workflow run and scan evidence, then confirm `main` is the only branch and the open pull-request inventory is empty.
 
 ## Unresolved product decisions
 
 None. The repairs preserve existing content, visuals, public URLs, and interaction contracts.
+
+## Verification evidence
+
+- Pages run `40037514768` passed `npm run validate` and deployment for release 1.0.3; validation covered 195 political records, 195 map targets, 29 point-target microstates, all 10 tests, TypeScript, and Vite.
+- Post-release directory scan `2fe619f9-4c37-4c0b-8b09-c8d9e78a894e` and map scan `e3ea0cf1-388e-424c-9946-3cb36635dfb8` each reported 0 failures and 0 instances in their automated scope.
+- The live 720px directory probe measured document `clientWidth=720`, `scrollWidth=720`, `.table-wrap.clientWidth=677`, and `.table-wrap.scrollWidth=1050`.
+- Live 390px directory and map probes measured `clientWidth=scrollWidth=390`; the directory rendered 195 records and reported version 1.0.3, while the Japan map detail retained its labelled landmark and decorative hidden swatch.
+- The live 1920px map probe measured `clientWidth=scrollWidth=1920` with the Japan detail present.
