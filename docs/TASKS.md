@@ -4,7 +4,7 @@
 
 # Active tasks
 
-Task statuses use the values defined in `docs/TRACKER.md`.
+Task statuses use the values defined in `docs/DOCUMENTATION.md`.
 
 ## Resume here
 
