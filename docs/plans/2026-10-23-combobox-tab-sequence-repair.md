@@ -36,7 +36,7 @@ Use the live 1.0.3 `J` focus audit as red evidence: Jamaica, Japan, and Jordan e
 
 Add `tabIndex={-1}` to the existing option button. Do not change roles, active-index state, blur handling, pointer handling, or selection logic.
 
-- [ ] **Step 3: Verify the focused live contract after deployment**
+- [x] **Step 3: Verify the focused live contract after deployment**
 
 With `J` entered, verify all visible option nodes report `tabIndex=-1`, the input is the DOM active element, ArrowDown changes `aria-activedescendant`, Enter selects the referenced country, and pointer activation still selects a country.
 
@@ -57,19 +57,27 @@ With `J` entered, verify all visible option nodes report `tabIndex=-1`, the inpu
 
 Change only the root application version from 1.0.3 to 1.0.4 in `package.json` and synchronized root package entries in `package-lock.json`.
 
-- [ ] **Step 2: Run the full repository gate**
+- [x] **Step 2: Run the full repository gate**
 
 Run: `npm run validate`
 Expected: 195-record/map validation succeeds, all existing tests pass, TypeScript succeeds, and Vite builds 1.0.4.
 
-- [ ] **Step 3: Deploy and verify public behavior**
+- [x] **Step 3: Deploy and verify public behavior**
 
 Require the implementation commit's GitHub Pages build and deploy jobs to succeed. Verify the live manifest is 1.0.4 and repeat the focused typeahead audit at representative desktop and 390px widths without page overflow.
 
-- [ ] **Step 4: Reconcile handoff state**
+- [x] **Step 4: Reconcile handoff state**
 
 Mark WPS-022 and WPS-T011 verified only after fresh deploy/live evidence, then confirm only `main` exists and the open pull-request inventory is empty.
 
 ## Unresolved product decisions
 
 None. This changes only the native sequential focusability of listbox option buttons.
+
+## Verification evidence
+
+- Pages run `40038450586` passed `npm run validate` and deployment for release 1.0.4; validation covered 195 political records, 195 map targets, 29 point-target microstates, all 10 tests, TypeScript, and Vite.
+- Live desktop `J` QA found Jamaica, Japan, and Jordan with `tabIndex=-1`; the input remained the DOM active combobox, and `Show country` was the next sequentially focusable control.
+- ArrowDown set `aria-activedescendant` to Jamaica while DOM focus stayed on the input; Enter then selected Jamaica and synchronized `?country=Jamaica`, the input, and the detail heading.
+- Live 390px pointer QA found the same three options at `tabIndex=-1`; pointer activation selected Japan, synchronized URL/input/detail, retained input focus, and measured `clientWidth=scrollWidth=390`.
+- The live manifest reported version 1.0.4 during the desktop verification.
