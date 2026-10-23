@@ -12,26 +12,31 @@ import {
   type DirectoryFilters,
   type PoliticalGroup,
 } from '../lib/countries'
+import { searchEditHistoryMode, type HistoryWriteMode } from '../lib/historyState'
 
 const numberFormat = new Intl.NumberFormat(navigator.language || 'en-US')
 const collator = new Intl.Collator(navigator.language || 'en-US', { sensitivity: 'base' })
 
-function replaceDirectoryUrl(filters: DirectoryFilters) {
+function writeDirectoryUrl(filters: DirectoryFilters, mode: HistoryWriteMode) {
   const search = directorySearchFromFilters(filters)
-  history.replaceState(null, '', `${location.pathname}${search ? `?${search}` : ''}${location.hash}`)
+  const url = `${location.pathname}${search ? `?${search}` : ''}${location.hash}`
+  if (mode === 'push') history.pushState(null, '', url)
+  else history.replaceState(null, '', url)
 }
 
 export function HomePage() {
   const [filters, setFilters] = useState(() => directoryFiltersFromSearch(location.search))
   const searchRef = useRef<HTMLInputElement>(null)
+  const searchEditActive = useRef(false)
 
   useEffect(() => {
-    const onPopState = () => setFilters(directoryFiltersFromSearch(location.search))
+    const onPopState = () => {
+      searchEditActive.current = false
+      setFilters(directoryFiltersFromSearch(location.search))
+    }
     addEventListener('popstate', onPopState)
     return () => removeEventListener('popstate', onPopState)
   }, [])
-
-  useEffect(() => replaceDirectoryUrl(filters), [filters])
 
   const structures = useMemo(
     () => [...new Set(countries.map((country) => country.system))].sort(collator.compare),
@@ -44,7 +49,11 @@ export function HomePage() {
   const filtered = useMemo(() => filterCountries(countries, filters, navigator.language), [filters])
   const groups = useMemo(() => groupCountries(filtered, filters.groupBy, collator), [filtered, filters.groupBy])
 
-  const update = (patch: Partial<DirectoryFilters>) => setFilters((current) => ({ ...current, ...patch }))
+  const update = (patch: Partial<DirectoryFilters>, mode: HistoryWriteMode = 'push') => {
+    const next = { ...filters, ...patch }
+    setFilters(next)
+    writeDirectoryUrl(next, mode)
+  }
 
   return (
     <>
@@ -124,7 +133,14 @@ export function HomePage() {
                 spellCheck={false}
                 value={filters.query}
                 placeholder="Try monarchy, prime minister, Nicaragua…"
-                onChange={(event) => update({ query: event.target.value })}
+                onBlur={() => {
+                  searchEditActive.current = false
+                }}
+                onChange={(event) => {
+                  const mode = searchEditHistoryMode(searchEditActive.current)
+                  searchEditActive.current = true
+                  update({ query: event.target.value }, mode)
+                }}
               />
             </label>
             <label className="field">
@@ -170,7 +186,8 @@ export function HomePage() {
               className="clear-button"
               type="button"
               onClick={() => {
-                setFilters({ query: '', category: '', structure: '', groupBy: 'group' })
+                searchEditActive.current = false
+                update({ query: '', category: '', structure: '', groupBy: 'group' })
                 searchRef.current?.focus()
               }}
             >

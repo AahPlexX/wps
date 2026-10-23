@@ -31,16 +31,16 @@
 - Produces: `searchEditHistoryMode(editActive: boolean): 'push' | 'replace'`.
 - Produces: `mapCountryUrl(pathname: string, search: string, hash: string, country: string): string`.
 
-- [ ] **Step 1: Add the focused failing test**
+- [x] **Step 1: Add the focused failing test**
 
 Create `tests/historyState.test.ts` that imports the two proposed helpers before they exist. Assert that the first search edit returns `push`, a later edit in the same session returns `replace`, and `mapCountryUrl('/wps/map/', '?foo=1&country=France', '#detail', 'Japan')` returns `/wps/map/?foo=1&country=Japan#detail`.
 
-- [ ] **Step 2: Verify the relevant failure**
+- [x] **Step 2: Verify the relevant failure**
 
 Run: `npm test -- --test-name-pattern="history"`
 Expected: non-zero exit because `src/lib/historyState.ts` does not exist; existing tests remain unaffected.
 
-- [ ] **Step 3: Implement the minimum behavior**
+- [x] **Step 3: Implement the minimum behavior**
 
 Add only the two pure helpers. `searchEditHistoryMode` returns `replace` when `editActive` is true and `push` otherwise. `mapCountryUrl` uses `URLSearchParams`, overwrites `country`, preserves unrelated parameters, and appends the supplied hash.
 
@@ -74,15 +74,15 @@ Do not leave the helper unused in a deployed build; integrate it with both pages
 - Consumes: `searchEditHistoryMode`, `mapCountryUrl`, existing URL parsers, browser `history`, and `popstate`.
 - Produces: navigable URL-backed directory and map state with the existing visible UI unchanged.
 
-- [ ] **Step 1: Integrate directory history**
+- [x] **Step 1: Integrate directory history**
 
 Remove the effect that replaces the URL after every filter state change. Route user-driven filter updates through a small page-local URL writer: discrete controls use `pushState`; search `onChange` uses `searchEditHistoryMode`; search blur and `popstate` end the active search-edit session. The existing `popstate` handler updates React state only.
 
-- [ ] **Step 2: Integrate map history**
+- [x] **Step 2: Integrate map history**
 
 Separate state restoration from user selection. User selection pushes `mapCountryUrl(...)` only when the selected country actually changes; the `popstate` handler restores selected/query state without writing history. Keep initial URL canonicalization as a `replaceState` and keep document-title updates independent of history writes.
 
-- [ ] **Step 3: Bump the significant release once**
+- [x] **Step 3: Bump the significant release once**
 
 Change the root package version from 1.0.1 to 1.0.2 in `package.json` and the synchronized root entries in `package-lock.json`. Do not hand-edit `version.json`; the existing Vite build emits it from the package version.
 

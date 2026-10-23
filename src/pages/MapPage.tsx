@@ -9,6 +9,7 @@ import {
   GROUP_LABELS,
   GROUP_ORDER,
 } from '../lib/countries'
+import { mapCountryUrl } from '../lib/historyState'
 
 const collator = new Intl.Collator(navigator.language || 'en-US', { sensitivity: 'base' })
 const sortedCountries = [...countries].sort((a, b) => collator.compare(a.country, b.country))
@@ -34,24 +35,38 @@ export function MapPage() {
     [],
   )
 
-  const selectCountry = useCallback((country: string) => {
+  const restoreCountry = useCallback((country: string) => {
     if (!countryByName.has(country)) return
     setSelectedCountry(country)
     setQuery(country)
   }, [])
 
+  const selectCountry = useCallback((country: string) => {
+    if (!countryByName.has(country)) return
+    if (country !== selectedCountry) {
+      history.pushState(null, '', mapCountryUrl(location.pathname, location.search, location.hash, country))
+    }
+    restoreCountry(country)
+  }, [restoreCountry, selectedCountry])
+
   useEffect(() => {
-    const params = new URLSearchParams(location.search)
-    params.set('country', selectedCountry)
-    history.replaceState(null, '', `${location.pathname}?${params.toString()}`)
+    const canonicalCountry = countryFromUrl()
+    history.replaceState(
+      null,
+      '',
+      mapCountryUrl(location.pathname, location.search, location.hash, canonicalCountry),
+    )
+  }, [])
+
+  useEffect(() => {
     document.title = `${selectedCountry} — Political World Map`
   }, [selectedCountry])
 
   useEffect(() => {
-    const onPopState = () => selectCountry(countryFromUrl())
+    const onPopState = () => restoreCountry(countryFromUrl())
     addEventListener('popstate', onPopState)
     return () => removeEventListener('popstate', onPopState)
-  }, [selectCountry])
+  }, [restoreCountry])
 
   function findCountry() {
     const exact = countries.find((country) => collator.compare(country.country, query.trim()) === 0)

@@ -8,8 +8,8 @@ Task statuses use the values defined in `docs/TRACKER.md`.
 
 ## Resume here
 
-Current state: WPS-001 through WPS-019 are verified and release 1.0.1 is deployed. WPS-T009 is active to repair browser-history semantics for URL-backed directory and map state.  
-Next action: add the focused failing history-policy regression test, then implement the minimum directory/map history repair and release it as 1.0.2.  
+Current state: WPS-001 through WPS-019 are verified. WPS-T009 is in progress; the red regression run is recorded and the 1.0.2 browser-history implementation is on `main` awaiting green CI/deploy and live browser QA.  
+Next action: verify the 1.0.2 workflow, then live-test Back/Forward plus search-entry coalescing on directory and map routes.  
 Blockers: none.
 
 | Task | Status | Covers | Completion evidence |
@@ -22,4 +22,4 @@ Blockers: none.
 | WPS-T006 Reconcile final evidence and handoff state | verified | WPS-015 | Re-read governing records; only `main` exists, open PR inventory is empty, and post-documentation run `39681845777` passed build and deployment steps. |
 | WPS-T007 Add map country starts-with typeahead | verified | WPS-017 | Red run `39683845722`; final validation/deploy run `39684424181`; live one/two-character filtering, keyboard/pointer selection, URL state, and 390px overflow checks passed. |
 | WPS-T008 Add deployment update prompt and release-version contract | verified | WPS-018–019 | Release 1.0.1 package/lock/build manifest synchronized; red run `39693354911`; Pages run `39694159614` passed validation/build/deploy; live same/newer-version, Cancel/later-version, and centered 390/1920 layout checks passed. |
-| WPS-T009 Repair browser history for URL-backed state | in_progress | WPS-020 | Live baseline audit proves both directory and map user state changes replace rather than push history. Plan: `docs/plans/2026-10-23-browser-history-state.md`. |
+| WPS-T009 Repair browser history for URL-backed state | in_progress | WPS-020 | Live baseline audit proved both flows overwrite history; red run `39959077809` failed on the intentionally missing helper. Version 1.0.2 implementation is pending green workflow and live browser evidence. |
