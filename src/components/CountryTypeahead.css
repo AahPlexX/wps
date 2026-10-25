@@ -6,8 +6,7 @@
 .typeahead-listbox {
   position: absolute;
   top: calc(100% + .35rem);
-  left: 0;
-  right: 0;
+  inset-inline: 0;
   z-index: 40;
   max-height: min(22rem, 48vh);
   overflow-y: auto;
@@ -26,7 +25,7 @@
   border-radius: 0;
   background: var(--paper);
   padding: .65rem .75rem;
-  text-align: left;
+  text-align: start;
   color: var(--ink);
 }
 

@@ -442,16 +442,18 @@ export function GlobeCanvas({ countries, features, selectedCountry, onSelect, re
   }, [countries, features])
 
   return (
-    <div ref={stageRef} className="globe-stage" data-testid="globe-stage">
-      <canvas
-        ref={canvasRef}
-        className="globe-canvas"
-        tabIndex={0}
-        aria-label="Interactive 3D globe. Drag to rotate. Use the mouse wheel, plus, or minus to zoom. Arrow keys rotate the globe. Select a country by clicking it or use the country search above."
-      >
-        Use the country search to select a country and read its political structure.
-      </canvas>
-      <div ref={tooltipRef} className="map-tooltip" hidden aria-hidden="true" />
+    <div className="globe-shell">
+      <div ref={stageRef} className="globe-stage" data-testid="globe-stage">
+        <canvas
+          ref={canvasRef}
+          className="globe-canvas"
+          tabIndex={0}
+          aria-label="Interactive 3D globe. Drag to rotate. Use the mouse wheel, plus, or minus to zoom. Arrow keys rotate the globe. Select a country by clicking it or use the country search above."
+        >
+          Use the country search to select a country and read its political structure.
+        </canvas>
+        <div ref={tooltipRef} className="map-tooltip" hidden aria-hidden="true" />
+      </div>
       <p className="map-status">
         Drag to rotate. Scroll or use +/− to zoom. Keyboard: arrows rotate, Home resets. Small
         states not visible at this map scale use point targets.

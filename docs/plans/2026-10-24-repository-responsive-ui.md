@@ -66,15 +66,15 @@ Use the live 1.0.4 320px + 200% map audit as the failing behavioral test: `clien
 - Consumes: existing `.globe-stage`, `.map-status`, `.directory-link`, `.site-shell`, 640px narrow-layout block, and typeahead option style.
 - Produces: unchanged globe interaction plus width-contained large-text layout and logical/safe-area styling.
 
-- [ ] **Step 1: Make globe instructions independently flowable**
+- [x] **Step 1: Make globe instructions independently flowable**
 
 Wrap `.globe-stage` and `.map-status` in `.globe-shell`; keep stage ref/canvas/tooltip inside the stage and instruction text as the shell sibling. Preserve the default absolute overlay using `.globe-shell { position: relative; min-width: 0; }`; in the existing 640px media block make `.map-status` static with full available width and normal-flow margin.
 
-- [ ] **Step 2: Remove the audited intrinsic-width trigger**
+- [x] **Step 2: Remove the audited intrinsic-width trigger**
 
 Allow `.directory-link` text to wrap and cap it to available inline size; retain existing action styling and narrow-layout fit-content behavior.
 
-- [ ] **Step 3: Harden safe-area and directional layout without changing canvas math**
+- [x] **Step 3: Harden safe-area and directional layout without changing canvas math**
 
 Refactor `.site-shell` to preserve its existing content width through physical left/right safe-area-aware padding; give the nav shell its existing narrower visual gutter using the same physical safe-area treatment. Convert presentational directional alignment/border/inset rules to logical properties, including typeahead option text alignment. Keep pointer-derived tooltip coordinates physical. Keep update-dialog dimensions safe-area-aware without changing its normal rectangular-viewport size.
 
@@ -93,7 +93,7 @@ Expected: all existing Node tests pass; no application/data interaction regresse
 - Consumes: complete Task 2 source and repository release-version contract.
 - Produces: deployed 1.0.5 with fresh repository/live evidence and resumable final handoff.
 
-- [ ] **Step 1: Increment package and lock root version from 1.0.4 to 1.0.5 exactly once**
+- [x] **Step 1: Increment package and lock root version from 1.0.4 to 1.0.5 exactly once**
 
 Do not hand-edit generated `dist/version.json`; Vite owns it.
 
