@@ -6,6 +6,8 @@
 
 Newest first. One decision fact per line.
 
+- 2026-10-24 — Use shrinkable proportional label/value tracks for stacked directory records; a fixed `rem` minimum on the label track collapses the value track under 200% text enlargement at 320px.
+
 - 2026-10-24 — Govern every client-facing WPS surface with `docs/RESPONSIVE_UI.md`; responsive decisions use available space and existing CSS/Tailwind conventions rather than device detection or a new breakpoint framework.
 - 2026-10-24 — Treat Vite 8's unoverridden `baseline-widely-available` build target as the repository browser-support baseline: Chrome 111+, Edge 111+, Firefox 114+, Safari 16.4+, and iOS 16.4+.
 - 2026-10-24 — Preserve the globe instruction overlay on layouts where it fits, but move its text into normal flow at the existing narrow-layout breakpoint when increased text would otherwise exceed/obscure the globe; do not resize the map merely to hide the text.

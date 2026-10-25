@@ -54,7 +54,7 @@ Display type uses an old-style serif stack for country and section hierarchy. UI
 
 ## Layout
 
-The directory uses wide reference bands and a grouped table that becomes stacked country records when available space is too narrow for useful tabular reading. The map uses a globe/detail split while space permits and stacks globe then detail below the existing content-failure breakpoint. Page gutters are fluid and safe-area aware.
+The directory uses wide reference bands and a grouped table that becomes stacked country records when available space is too narrow for useful tabular reading. Stacked records use shrinkable proportional label/value tracks so increased text size cannot reserve the full row for the label and collapse the value track. The map uses a globe/detail split while space permits and stacks globe then detail below the existing content-failure breakpoint. Page gutters are fluid and safe-area aware.
 
 Responsive behavior is governed by `docs/RESPONSIVE_UI.md`. The current stylesheet is desktop-first and centralizes its content-driven `max-width` breakpoints at 1080px, 820px, and 640px in `src/styles.css`; do not duplicate those thresholds in component files or add named-device breakpoints. The effective production browser target is Vite 8's unoverridden `baseline-widely-available` target: Chrome 111+, Edge 111+, Firefox 114+, Safari 16.4+, and iOS 16.4+.
 

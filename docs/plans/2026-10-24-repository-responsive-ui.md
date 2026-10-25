@@ -20,7 +20,7 @@
 - No dependency, reset, responsive framework, device sniffing, or political-data change.
 - Preserve existing visual identity and working desktop/mobile behavior.
 - Use current centralized 1080px, 820px, and 640px media-query structure; add no breakpoint unless a new content failure proves it necessary.
-- Significant release is exactly 1.0.5.
+- The first responsive implementation deployed as 1.0.5; because verification found a second user-visible responsive defect after that deployment, the corrective final release is exactly 1.0.6.
 - Keep `docs/RESPONSIVE_UI.md`, PRD/tracker/tasks/decisions/design/sources current at each stopping point.
 
 ## Review Focus
@@ -97,21 +97,52 @@ Expected: all existing Node tests pass; no application/data interaction regresse
 
 Do not hand-edit generated `dist/version.json`; Vite owns it.
 
-- [ ] **Step 2: Run the full repository gate**
+- [x] **Step 2: Run the full repository gate**
 
-Run `npm run validate`. Expected: 195-record/map validation, all Node tests, TypeScript, and Vite production build succeed.
+Run `npm run validate`. Expected: 195-record/map validation, all Node tests, TypeScript, and Vite production build succeed. Pages run `40152295780` passed the repository build/validation job for 1.0.5.
 
-- [ ] **Step 3: Require the implementation Pages workflow to build and deploy successfully**
+- [x] **Step 3: Require the implementation Pages workflow to build and deploy successfully**
 
-Record the exact implementation SHA and workflow run.
+Record the exact implementation SHA and workflow run. Implementation `e7a24c598206246df80d736bd070ea406207bb2d`, run `40152295780`, built and deployed successfully.
 
 - [ ] **Step 4: Repeat the live responsive matrix**
 
-Verify both routes at 320px; 200% text separately and with 320px; map at 256px height; original 320px+200% defect; representative intermediate/wide layouts; RTL/long-string stress; update-dialog short-height/text-scale behavior; and affected keyboard/pointer interactions. Page `scrollWidth` must not exceed `clientWidth` except within explicitly scoped table/map regions.
+Verify both routes at 320px; 200% text separately and with 320px; map at 256px height; original 320px+200% defect; representative intermediate/wide layouts; RTL/long-string stress; update-dialog short-height/text-scale behavior; and affected keyboard/pointer interactions. Page `scrollWidth` must not exceed `clientWidth` except within explicitly scoped table/map regions. The original map case passed on 1.0.5, but the continued 320px + 200% directory check exposed a zero-width stacked value track, so this step remains open.
 
 - [ ] **Step 5: Reconcile handoff and final exact-SHA validation**
 
 Mark WPS-023/WPS-T012 verified only after fresh evidence, close all plan checkboxes, set next significant version to 1.0.6, confirm only `main`, confirm open PR inventory empty, and require the final documentation SHA's workflow to pass.
+
+### Task 4: Correct the stacked-record text-scale collapse and release 1.0.6
+
+**Files:**
+- Modify: `src/styles.css`
+- Modify: `package.json`, `package-lock.json`
+- Modify: `DESIGN.md`, `docs/TRACKER.md`, `docs/TASKS.md`, `docs/DECISIONS.md`, this plan
+
+**Interfaces:**
+- Consumes: the existing <=640px stacked-record grid and the live 320px + 200% text verification seam.
+- Produces: nonzero label/value tracks at enlarged text without a new breakpoint or layout architecture.
+
+- [x] **Step 1: Preserve root-cause evidence and test the single hypothesis**
+
+Live 1.0.5 measured every stacked cell at `243.188px 0px` tracks with a 25.6px gap; the hierarchy cell grew to 5100.8px. A temporary browser-only override to `minmax(0,.8fr) minmax(0,1.2fr)` produced 71.7px/107.5px tracks and retained 320/320 page width.
+
+- [x] **Step 2: Apply the one-line root-cause correction and bump 1.0.6**
+
+Remove the fixed `7.6rem` minimum from the first stacked-record track and synchronize package/lock to 1.0.6. Do not alter the breakpoint, data markup, or normal table layout.
+
+- [ ] **Step 3: Validate and deploy 1.0.6**
+
+Require `npm run validate` and the exact 1.0.6 Pages workflow to pass.
+
+- [ ] **Step 4: Restart and complete the full live responsive matrix**
+
+Repeat all WPS-023 viewport/text/height/boundary/RTL/dialog/input checks from the beginning; explicitly measure stacked label/value tracks so page-level width alone cannot mask a content-collapse defect.
+
+- [ ] **Step 5: Reconcile final handoff**
+
+Mark WPS-023/WPS-T012 verified only after all fresh evidence is green; record unverified hardware/manual checks, set next significant version to 1.0.7, confirm only `main`, confirm no open PRs, and require the final docs SHA workflow to pass.
 
 ## Unresolved product decisions
 

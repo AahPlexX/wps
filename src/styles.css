@@ -304,7 +304,7 @@ tbody tr:last-child td { border-bottom: 0; }
   thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
   tbody { display: grid; gap: .8rem; }
   tbody tr { border-top: 1px solid var(--rule); background: var(--paper); content-visibility: auto; contain-intrinsic-size: 360px; }
-  td { display: grid; grid-template-columns: minmax(7.6rem, .8fr) minmax(0, 1.2fr); gap: .8rem; padding: .72rem .8rem; border-bottom: 1px solid var(--rule); }
+  td { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: .8rem; padding: .72rem .8rem; border-bottom: 1px solid var(--rule); }
   td::before { content: attr(data-label); color: var(--muted); font: 700 .76rem/1.35 var(--sans); }
   .country-cell, .assignment-cell, .hierarchy-cell { width: 100%; max-width: none; min-width: 0; }
   .country-cell { font-size: 1.2rem; }
