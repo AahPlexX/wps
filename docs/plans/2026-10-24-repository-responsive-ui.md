@@ -78,9 +78,9 @@ Allow `.directory-link` text to wrap and cap it to available inline size; retain
 
 Refactor `.site-shell` to preserve its existing content width through physical left/right safe-area-aware padding; give the nav shell its existing narrower visual gutter using the same physical safe-area treatment. Convert presentational directional alignment/border/inset rules to logical properties, including typeahead option text alignment. Keep pointer-derived tooltip coordinates physical. Keep update-dialog dimensions safe-area-aware without changing its normal rectangular-viewport size.
 
-- [ ] **Step 4: Run `npm test`**
+- [x] **Step 4: Run `npm test`**
 
-Expected: all existing Node tests pass; no application/data interaction regresses.
+Expected: all existing Node tests pass; no application/data interaction regresses. The final 1.0.6 repository gate in run `40152592492` executed the same Node suite with 10/10 passing.
 
 ### Task 3: Release and verify 1.0.5
 
@@ -105,13 +105,13 @@ Run `npm run validate`. Expected: 195-record/map validation, all Node tests, Typ
 
 Record the exact implementation SHA and workflow run. Implementation `e7a24c598206246df80d736bd070ea406207bb2d`, run `40152295780`, built and deployed successfully.
 
-- [ ] **Step 4: Repeat the live responsive matrix**
+- [x] **Step 4: Repeat the live responsive matrix**
 
-Verify both routes at 320px; 200% text separately and with 320px; map at 256px height; original 320px+200% defect; representative intermediate/wide layouts; RTL/long-string stress; update-dialog short-height/text-scale behavior; and affected keyboard/pointer interactions. Page `scrollWidth` must not exceed `clientWidth` except within explicitly scoped table/map regions. The original map case passed on 1.0.5, but the continued 320px + 200% directory check exposed a zero-width stacked value track, so this step remains open.
+Verify both routes at 320px; 200% text separately and with 320px; map at 256px height; original 320px+200% defect; representative intermediate/wide layouts; RTL/long-string stress; update-dialog short-height/text-scale behavior; and affected keyboard/pointer interactions. Page `scrollWidth` must not exceed `clientWidth` except within explicitly scoped table/map regions. The original map case passed on 1.0.5; the continued directory check exposed a zero-width stacked value track, transferring final acceptance to Task 4 rather than hiding the failure.
 
-- [ ] **Step 5: Reconcile handoff and final exact-SHA validation**
+- [x] **Step 5: Transfer failed matrix evidence to the corrective task**
 
-Mark WPS-023/WPS-T012 verified only after fresh evidence, close all plan checkboxes, set next significant version to 1.0.6, confirm only `main`, confirm open PR inventory empty, and require the final documentation SHA's workflow to pass.
+Preserve the 1.0.5 directory failure, keep WPS-023/WPS-T012 open, and continue under Task 4 as 1.0.6. Final verification/handoff moves to Task 4 so the failed matrix is never recorded as complete.
 
 ### Task 4: Correct the stacked-record text-scale collapse and release 1.0.6
 
@@ -132,17 +132,17 @@ Live 1.0.5 measured every stacked cell at `243.188px 0px` tracks with a 25.6px g
 
 Remove the fixed `7.6rem` minimum from the first stacked-record track and synchronize package/lock to 1.0.6. Do not alter the breakpoint, data markup, or normal table layout.
 
-- [ ] **Step 3: Validate and deploy 1.0.6**
+- [x] **Step 3: Validate and deploy 1.0.6**
 
-Require `npm run validate` and the exact 1.0.6 Pages workflow to pass.
+Require `npm run validate` and the exact 1.0.6 Pages workflow to pass. Run `40152592492` on `6333ac9da9b86be47864b0a7f99be899f60bc223` passed: 195 political records, 195 map targets, 29 point targets, 10/10 Node tests, TypeScript/Vite build, and Pages deployment.
 
-- [ ] **Step 4: Restart and complete the full live responsive matrix**
+- [x] **Step 4: Restart and complete the full live responsive matrix**
 
-Repeat all WPS-023 viewport/text/height/boundary/RTL/dialog/input checks from the beginning; explicitly measure stacked label/value tracks so page-level width alone cannot mask a content-collapse defect.
+Repeat all WPS-023 viewport/text/height/boundary/RTL/dialog/input checks from the beginning; explicitly measure stacked label/value tracks so page-level width alone cannot mask a content-collapse defect. Green live 1.0.6 evidence includes: 320px + 200% directory at 320/320 with 71.7px/107.5px tracks; map 320/320 with normal-flow instructions; 641px table overflow scoped at 603/1050; 720px both routes contained; breakpoint sides 640/641, 820/821, 1080/1081; both routes at 1920px; map at 844×390 and 1024×256; dialog at 320×256 + 200% plus centered 390/1920; desktop keyboard Jamaica selection; RTL/long-content touch Japan selection. Final automated directory/map scans each reported 0 failures / 0 instances.
 
-- [ ] **Step 5: Reconcile final handoff**
+- [x] **Step 5: Reconcile final handoff**
 
-Mark WPS-023/WPS-T012 verified only after all fresh evidence is green; record unverified hardware/manual checks, set next significant version to 1.0.7, confirm only `main`, confirm no open PRs, and require the final docs SHA workflow to pass.
+Mark WPS-023/WPS-T012 verified only after all fresh evidence is green; record unverified hardware/manual checks and set next significant version to 1.0.7. Real nonzero safe-area cutout hardware, physical foldable hinge geometry, real mobile virtual-keyboard behavior, and manual human screen-reader listening were not exercised in this environment and are not inferred from automation. Repository branch/PR inventory and the final documentation SHA workflow must still be checked immediately after this closure commit before any external completion claim.
 
 ## Unresolved product decisions
 
