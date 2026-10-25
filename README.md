@@ -15,7 +15,7 @@ Vite + TypeScript + React + Tailwind CSS + JSON. Runtime political and map data 
 
 - `npm ci` — install the committed dependency graph from `package-lock.json`.
 - `npm run dev` — start Vite locally.
-- `npm test` — run focused Node tests for directory, globe, browser-state, version, and repository UI contracts.
+- `npm test` — run focused Node tests for directory, globe, browser-history, typeahead, and deployment-version logic.
 - `npm run validate:data` — assert the 195-state dataset and map-target invariants.
 - `npm run build` — type-check and create the production build.
 - `npm run validate` — run data checks, tests, and production build.

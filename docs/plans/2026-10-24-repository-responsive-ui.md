@@ -8,7 +8,7 @@
 
 **Goal:** Establish the permanent WPS responsive UI contract and repair the verified narrow-map/large-text failure without redesigning working surfaces.
 
-**Architecture:** Keep the existing React/Tailwind/conventional-CSS layout architecture and its 1080/820/640 desktop-first breakpoints. Add source-level contract tests with the existing Node runner, then make only intrinsic-width, map-instruction-flow, safe-area, and logical-property changes justified by the audit.
+**Architecture:** Keep the existing React/Tailwind/conventional-CSS layout architecture and its 1080/820/640 desktop-first breakpoints. Use the already observed live browser failure as the layout red test, retain the existing Node suite as the application regression gate, and make only intrinsic-width, map-instruction-flow, safe-area, and logical-property changes justified by the audit.
 
 **Tech Stack:** React 19.3.0, TypeScript 7.0.2, Tailwind CSS 4.3.3, conventional CSS, Vite 8.3.4, Node built-in test runner, GitHub Pages, browser-rendered live QA.
 
@@ -33,16 +33,15 @@
 
 ---
 
-### Task 1: Add responsive governance and contract test
+### Task 1: Establish responsive governance and preserve the rendered red test
 
 **Files:**
 - Create: `docs/RESPONSIVE_UI.md`
-- Create: `tests/responsive-contract.test.ts`
 - Modify: `AGENTS.md`, `README.md`, `DESIGN.md`, `docs/DOCUMENTATION.md`, `docs/PRD.md`, `docs/TRACKER.md`, `docs/TASKS.md`, `docs/DECISIONS.md`, `docs/SOURCES.md`
 
 **Interfaces:**
 - Consumes: current viewport metadata, CSS source, responsive architecture, Vite browser target, package validation command.
-- Produces: WPS-023/WPS-T012 plus a machine-checked source contract used by all future UI work.
+- Produces: WPS-023/WPS-T012 plus a permanent responsive implementation and verification contract.
 
 - [x] **Step 1: Inspect the current UI architecture and capture live baseline evidence**
 
@@ -52,13 +51,9 @@ Map both public routes at 320px, 200% text, combined width/text, 256px short hei
 
 Record the existing stack, breakpoints, effective browser target, implementation rules, verification matrix, selected minimal approach, and live red evidence.
 
-- [ ] **Step 3: Add the failing source-contract test**
+- [x] **Step 3: Define the CSS/browser TDD seam**
 
-Create `tests/responsive-contract.test.ts` using only `node:test`, `node:assert/strict`, and `node:fs`. Assert zoom-preserving viewport metadata, all four safe-area variables when `viewport-fit=cover` is used, scoped table overflow/no global overflow suppression, narrow normal-flow `.map-status`, and logical directional properties.
-
-- [ ] **Step 4: Run the test and record the intentional red result**
-
-Run `npm test`. Expected: existing tests pass and the new responsive-contract suite fails only on source conditions intentionally absent from the 1.0.4 implementation.
+Use the live 1.0.4 320px + 200% map audit as the failing behavioral test: `clientWidth=320`, `scrollWidth=339`, `.map-status` 589px high inside a 464px overflow-hidden stage. Do not add a browser-test dependency or brittle source-text assertions solely to reproduce layout-engine behavior.
 
 ### Task 2: Repair the audited map/responsive contract failures
 
@@ -66,7 +61,6 @@ Run `npm test`. Expected: existing tests pass and the new responsive-contract su
 - Modify: `src/components/GlobeCanvas.tsx`
 - Modify: `src/styles.css`
 - Modify: `src/components/CountryTypeahead.css`
-- Test: `tests/responsive-contract.test.ts`
 
 **Interfaces:**
 - Consumes: existing `.globe-stage`, `.map-status`, `.directory-link`, `.site-shell`, 640px narrow-layout block, and typeahead option style.
@@ -82,11 +76,11 @@ Allow `.directory-link` text to wrap and cap it to available inline size; retain
 
 - [ ] **Step 3: Harden safe-area and directional layout without changing canvas math**
 
-Make narrow page/nav shell widths account for both inline safe-area insets; convert presentational left/right alignment/border/inset rules to logical properties, including typeahead option text alignment. Keep pointer-derived tooltip coordinates physical.
+Refactor `.site-shell` to preserve its existing content width through physical left/right safe-area-aware padding; give the nav shell its existing narrower visual gutter using the same physical safe-area treatment. Convert presentational directional alignment/border/inset rules to logical properties, including typeahead option text alignment. Keep pointer-derived tooltip coordinates physical. Keep update-dialog dimensions safe-area-aware without changing its normal rectangular-viewport size.
 
-- [ ] **Step 4: Run `npm test` and confirm the responsive contract turns green**
+- [ ] **Step 4: Run `npm test`**
 
-Expected: all existing tests plus the new responsive-contract tests pass.
+Expected: all existing Node tests pass; no application/data interaction regresses.
 
 ### Task 3: Release and verify 1.0.5
 
