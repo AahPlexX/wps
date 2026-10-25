@@ -50,11 +50,15 @@ The page uses civic paper neutrals and dark green-black ink. Category colors enc
 
 ## Typography
 
-Display type uses an old-style serif stack for country and section hierarchy. UI controls and body copy use a restrained humanist/system sans stack. Headlines stay balanced, labels use sentence case, and body measure remains below 80 characters where prose is primary.
+Display type uses an old-style serif stack for country and section hierarchy. UI controls and body copy use a restrained humanist/system sans stack. Headlines stay balanced, labels use sentence case, and body measure remains below 80 characters where prose is primary. Text sizing uses relative units so browser/user text settings remain effective.
 
 ## Layout
 
-The directory uses wide reference bands and a grouped table that becomes stacked country records on phones. The map uses a globe/detail split on wide screens and stacks globe then detail below 820px. Page gutters are fluid and safe-area aware.
+The directory uses wide reference bands and a grouped table that becomes stacked country records when available space is too narrow for useful tabular reading. The map uses a globe/detail split while space permits and stacks globe then detail below the existing content-failure breakpoint. Page gutters are fluid and safe-area aware.
+
+Responsive behavior is governed by `docs/RESPONSIVE_UI.md`. The current stylesheet is desktop-first and centralizes its content-driven `max-width` breakpoints at 1080px, 820px, and 640px in `src/styles.css`; do not duplicate those thresholds in component files or add named-device breakpoints. The effective production browser target is Vite 8's unoverridden `baseline-widely-available` target: Chrome 111+, Edge 111+, Firefox 114+, Safari 16.4+, and iOS 16.4+.
+
+Use logical properties for directional layout where physical coordinates are not intrinsic to an interaction. With `viewport-fit=cover`, content gutters and fixed/focusable UI must honor all relevant safe-area edges. Wide tables and the globe may own contained two-dimensional interaction/scroll behavior; surrounding prose, controls, status/instruction text, and detail content must still reflow without forcing page-level two-dimensional scrolling.
 
 ## Elevation & Depth
 
@@ -62,13 +66,13 @@ The system is flat by default. Borders, tonal surfaces, and the rendered globe e
 
 ## Shapes
 
-Controls use restrained rounded corners. The globe stage has a 16px radius on larger screens and 12px on phones. Data rows are not individual floating cards.
+Controls use restrained rounded corners. The globe stage has a 16px radius on larger screens and 12px when the narrow-layout rules apply. Data rows are not individual floating cards.
 
 ## Components
 
 Buttons and links use the same dark-ink active state. Every interactive element has a visible focus ring. Category buttons encode selected state with filled constitutional ink; the globe uses category color only on geopolitical geometry.
 
-The deployment-update prompt uses the native modal `dialog` element, is explicitly centered within the viewport, reuses the paper/ink/accent tokens, and contains only a short update label, the available version, and the `Update` and `Cancel` actions. It must remain within a one-rem viewport gutter on phones and must not add release-note copy or decorative chrome.
+The deployment-update prompt uses the native modal `dialog` element, is explicitly centered within the viewport, reuses the paper/ink/accent tokens, and contains only a short update label, the available version, and the `Update` and `Cancel` actions. It must remain within a one-rem viewport gutter on phones and must preserve access to both actions at short heights and increased text sizes, using internal scrolling when necessary.
 
 ## Do's and Don'ts
 
@@ -77,4 +81,7 @@ The deployment-update prompt uses the native modal `dialog` element, is explicit
 - Keep the 3D globe as the map page’s dominant visual element.
 - Keep labels in sentence case and actions explicit.
 - Keep deployment update prompts concise: available version plus Update/Cancel only.
+- Reflow or restack controls/instructions when available space or text scaling makes overlays or fixed rows obscure content.
+- Keep map/table two-dimensional behavior contained to the map/table region rather than the page.
+- Do not infer layout from device model, orientation name, or user agent.
 - Do not add external source links or citation chrome to the public client.

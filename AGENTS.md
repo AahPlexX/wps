@@ -1,6 +1,6 @@
 # WPS repository instructions
 
-This file is the repository instruction entry point. Keep agent instructions here; keep product facts, requirements, status, design tokens, and decisions in their linked source-of-truth documents.
+This file is the repository instruction entry point. Keep agent instructions here; keep product facts, requirements, status, design tokens, responsive rules, and decisions in their linked source-of-truth documents.
 
 ## Authority
 
@@ -16,6 +16,7 @@ This file is the repository instruction entry point. Keep agent instructions her
 3. `docs/TRACKER.md` and `docs/TASKS.md` for current state and “Resume here”.
 4. `docs/DECISIONS.md` for active architectural decisions.
 5. `DESIGN.md` for normative visual tokens and UI rules.
+6. `docs/RESPONSIVE_UI.md` before creating or changing any client-facing UI.
 
 ## Working rules
 
@@ -24,10 +25,12 @@ This file is the repository instruction entry point. Keep agent instructions her
 - Keep political data in the shared JSON source; do not duplicate country records between pages.
 - The public client must not expose external source links or citations. Development sources belong in `docs/SOURCES.md`.
 - Keep accessibility, data integrity, and keyboard/pointer parity intact when simplifying.
+- Every client-facing page, component, screen, or window created or changed must satisfy `docs/RESPONSIVE_UI.md`. Base layout on available space rather than device identity, preserve information and function at supported sizes/text scales, and do not add device sniffing, a second breakpoint system, global overflow suppression, or unrelated responsive rewrites.
+- Inspect the current UI stack, styling convention, breakpoints, tokens, target browsers, and validation setup before responsive edits. Keep breakpoints at demonstrated content-failure points and in the existing CSS convention.
 - Keep UI state that affects the visible result deep-linkable in the URL.
 - Treat feature additions and other meaningful user-visible behavior changes as significant releases unless the owner explicitly says otherwise. Before deploying each significant release, increment the `package.json` patch version by exactly one (`+0.0.1`) and keep `package-lock.json` synchronized. Versioning starts from baseline `1.0.0` on 2026-10-21.
-- Run the validation commands declared in `package.json`; do not substitute remembered commands.
-- Update tracker, tasks, decisions, and affected docs in the same coherent change as implementation. Never mark work verified without fresh validation evidence.
+- Run the validation commands declared in `package.json`; do not substitute remembered commands. For client-facing UI changes, also run the relevant live responsive matrix from `docs/RESPONSIVE_UI.md` and record what was and was not verified.
+- Update tracker, tasks, decisions, responsive/design standards, and affected docs in the same coherent change as implementation. Never mark work verified without fresh validation evidence.
 - No secrets, placeholders, speculative scaffolding, or dead extension points.
 
 ## Documentation header

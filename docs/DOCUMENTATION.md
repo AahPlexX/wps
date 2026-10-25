@@ -15,9 +15,10 @@ Use only `planned`, `in_progress`, `blocked`, `verified`, `awaiting_human`, `pro
 - `docs/TASKS.md` owns actionable work and the next executable step.
 - `docs/DECISIONS.md` owns current architectural and product decisions, newest first.
 - `docs/SOURCES.md` owns external research provenance used to make implementation or data decisions.
+- `docs/RESPONSIVE_UI.md` owns the permanent repository-wide adaptive-layout and responsive-verification contract for client-facing UI.
 
 `README.md` is an entry point, not a specification.
 
 ## Completion
 
-A requirement reaches `verified` only after fresh evidence satisfies its acceptance test. Evidence names the command, file, workflow, or deployed behavior that proves the result. Hardware- or person-dependent criteria use `awaiting_human` until tested.
+A requirement reaches `verified` only after fresh evidence satisfies its acceptance test. Evidence names the command, file, workflow, or deployed behavior that proves the result. Hardware- or person-dependent criteria use `awaiting_human` until tested. Automated accessibility or browser checks are evidence for the conditions they exercise, not a blanket compliance determination.

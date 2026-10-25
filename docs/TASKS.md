@@ -8,8 +8,8 @@ Task statuses use the values defined in `docs/DOCUMENTATION.md`.
 
 ## Resume here
 
-Current state: WPS-001 through WPS-022 are verified and release 1.0.4 is deployed. WPS-T011 is complete with current WAI-ARIA APG provenance, full repository validation, and live desktop/mobile focus and selection evidence.  
-Next action: future significant updates must increment the package patch version to 1.0.5 before deployment; otherwise begin from the PRD/tracker/decisions and verify source freshness before political-data changes.  
+Current state: WPS-001 through WPS-022 are verified; WPS-T012 is in progress for WPS-023 after a full responsive audit found a reproducible map failure only in the combined 320px + 200%-text condition. Release 1.0.4 remains deployed.  
+Next action: add and run the focused responsive-contract test to preserve a red state, then implement only the mapped responsive fixes, bump once to 1.0.5, validate/deploy, and repeat live width/text/height/RTL/input checks.  
 Blockers: none.
 
 | Task | Status | Covers | Completion evidence |
@@ -25,3 +25,4 @@ Blockers: none.
 | WPS-T009 Repair browser history for URL-backed state | verified | WPS-020 | Red run `39959077809`; green Pages run `39959315276` with 10/10 tests and successful deploy; live directory/search/map Back/Forward checks and 390/1366/1920 overflow checks passed at version 1.0.2. |
 | WPS-T010 Repair WCAG landmarks, ARIA naming, and 200% reflow | verified | WPS-021 | Red scans `2f2c3199-862b-438c-9347-7f9b11c20bbd` / `45db3587-8a8e-4e30-ad7c-0e477b647605`; Pages run `40037514768` passed validation/build/deploy at 1.0.3; green scans `2fe619f9-4c37-4c0b-8b09-c8d9e78a894e` / `e3ea0cf1-388e-424c-9946-3cb36635dfb8` reported 0 failures; live 720px document width was 720/720 with table overflow scoped at 677/1050, and 390/1920 guard checks had no page overflow. |
 | WPS-T011 Keep typeahead popup out of the page Tab sequence | verified | WPS-022 | Red live 1.0.3 audit showed three `J` options at `tabIndex=0` and focus loss on option focus. Pages run `40038450586` passed validation/build/deploy at 1.0.4. Green desktop QA showed all options at -1, `Show country` as the next sequential target, input focus retained through ArrowDown, and Jamaica committed through Enter; 390px pointer QA committed Japan, retained input focus, and had no page overflow. |
+| WPS-T012 Apply repository-wide responsive UI contract and repair audited failures | in_progress | WPS-023 | Audit and governance/spec/plan are recorded. Red live map evidence at 320px + 200% text: document width 339/320 and instruction overlay 589px inside a 464px stage. Next: focused contract-test red run, minimal source repair, 1.0.5 validation/deploy, repeat matrix, then reconcile handoff. |

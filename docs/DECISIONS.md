@@ -6,6 +6,10 @@
 
 Newest first. One decision fact per line.
 
+- 2026-10-24 — Govern every client-facing WPS surface with `docs/RESPONSIVE_UI.md`; responsive decisions use available space and existing CSS/Tailwind conventions rather than device detection or a new breakpoint framework.
+- 2026-10-24 — Treat Vite 8's unoverridden `baseline-widely-available` build target as the repository browser-support baseline: Chrome 111+, Edge 111+, Firefox 114+, Safari 16.4+, and iOS 16.4+.
+- 2026-10-24 — Preserve the globe instruction overlay on layouts where it fits, but move its text into normal flow at the existing narrow-layout breakpoint when increased text would otherwise exceed/obscure the globe; do not resize the map merely to hide the text.
+- 2026-10-24 — With `viewport-fit=cover`, protect both inline safe-area edges in page shells and prefer logical layout properties for directional UI; retain physical coordinates only where canvas/pointer geometry requires them.
 - 2026-10-23 — Keep map typeahead listbox options pointer-activatable but set their native button `tabIndex` to -1 so the `aria-activedescendant` combobox remains the only sequential keyboard focus target while the popup is open.
 - 2026-10-23 — Keep `SiteHeader` as the sole page-level banner landmark; the directory hero is content, not a second banner.
 - 2026-10-23 — Treat the map detail category-color dot as decorative because the adjacent detail list already exposes the category in text; label the map detail complementary landmark from its country-detail heading.
