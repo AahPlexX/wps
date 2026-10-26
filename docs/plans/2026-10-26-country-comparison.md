@@ -43,9 +43,9 @@
 **Interfaces:**
 - Produces: `MAX_COMPARISON_COUNTRIES`, `comparisonCountriesFromSearch(search, validCountryNames, locale?)`, `comparisonSearchFromCountries(countries)`.
 
-- [ ] Add focused tests for ordered valid selection, duplicate/unknown removal, four-country cap, case-insensitive canonical matching, and repeated-parameter round trip.
-- [ ] Run the repository workflow/`npm test` and record the intended red caused by the missing comparison helper.
-- [ ] Implement only the pure helper needed for those tests.
+- [x] Add focused tests for ordered valid selection, duplicate/unknown removal, four-country cap, case-insensitive canonical matching, and repeated-parameter round trip.
+- [x] Run the repository workflow/`npm test` and record the intended red caused by the missing comparison helper. Red run: `40348931816`; 12 pre-existing tests passed and only the intentionally absent helper failed to import.
+- [x] Implement only the pure helper needed for those tests.
 - [ ] Require all tests to pass before page code.
 
 ### Task 2: Build the comparison route and interaction
