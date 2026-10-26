@@ -4,8 +4,8 @@ Responsive GitHub Pages reference for comparing the top political assignment, go
 
 ## Live site
 
-- `https://aahplexx.github.io/wps/` â searchable political-structure directory.
-- `https://aahplexx.github.io/wps/map/` â interactive orthographic globe and country detail view.
+- `https://aahplexx.github.io/wps/` — searchable political-structure directory.
+- `https://aahplexx.github.io/wps/map/` — interactive orthographic globe and country detail view.
 
 ## Stack
 
@@ -13,19 +13,19 @@ Vite + TypeScript + React + Tailwind CSS + JSON. Runtime political and map data 
 
 ## Local commands
 
-- `npm ci` â install the committed dependency graph from `package-lock.json`.
-- `npm run dev` â start Vite locally.
-- `npm test` â run focused Node tests for directory, comparison, globe, browser-history, typeahead, and deployment-version logic.
-- `npm run validate:data` â assert the 195-state dataset and map-target invariants.
-- `npm run build` â type-check and create the production build.
-- `npm run validate` â run data checks, tests, and production build.
+- `npm ci` — install the committed dependency graph from `package-lock.json`.
+- `npm run dev` — start Vite locally.
+- `npm test` — run focused Node tests for directory, comparison, globe, browser-history, typeahead, and deployment-version logic.
+- `npm run validate:data` — assert the 195-state dataset and map-target invariants.
+- `npm run build` — type-check and create the production build.
+- `npm run validate` — run data checks, tests, and production build.
 
 Node 22.16.0 is the repository baseline (`.nvmrc`).
 
 ## Routes
 
-- `/wps/` â searchable political-structure directory.
-- `/wps/map/` â interactive orthographic globe and country detail view.
+- `/wps/` — searchable political-structure directory.
+- `/wps/map/` — interactive orthographic globe and country detail view.
 
 ## Project records
 

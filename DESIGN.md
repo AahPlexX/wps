@@ -40,9 +40,9 @@ components:
 
 ## Overview
 
-**Creative North Star: âThe Constitutional Field Guideâ**
+**Creative North Star: “The Constitutional Field Guide”**
 
-The interface borrows from diplomatic atlases, government directories, and constitutional charts. It is quiet, reference-first, and information-dense without looking bureaucratic. One memorable elementâthe globeâcarries the geographic experience while every surrounding control remains disciplined.
+The interface borrows from diplomatic atlases, government directories, and constitutional charts. It is quiet, reference-first, and information-dense without looking bureaucratic. One memorable element—the globe—carries the geographic experience while every surrounding control remains disciplined.
 
 ## Colors
 
@@ -80,7 +80,7 @@ The deployment-update prompt uses the native modal `dialog` element, is explicit
 
 - Preserve open reference layouts instead of repeating generic cards.
 - Reserve category colors for data meaning.
-- Keep the 3D globe as the map pageâs dominant visual element.
+- Keep the 3D globe as the map page’s dominant visual element.
 - Keep labels in sentence case and actions explicit.
 - Keep deployment update prompts concise: available version plus Update/Cancel only.
 - Reflow or restack controls/instructions when available space or text scaling makes overlays or fixed rows obscure content.

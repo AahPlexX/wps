@@ -65,7 +65,7 @@
 
 - [x] Add the third Vite HTML entry and path dispatch without a router.
 - [x] Extend `SiteHeader` with a `Compare` destination and narrow-layout wrapping inside the existing 640px rule.
-- [ ] Add the compare page with one add-country typeahead, selected-country Remove/Clear controls, 0â1 selection guidance, 2â4 responsive detail panels, four-country cap, and polite selection status.
+- [x] Add the compare page with one add-country typeahead, selected-country Remove/Clear controls, 0–1 selection guidance, 2–4 responsive detail panels, four-country cap, and polite selection status.
 - [x] Parameterize `CountryDetail` heading IDs so multiple instances remain valid while the map keeps its current default ID.
 - [x] Add only the compare/header CSS required by the design, using existing tokens and fluid/grid primitives.
 - [x] Implement push-state add/remove/clear and popstate restore; do not URL-sync transient typing.
@@ -83,8 +83,8 @@
 - Reconcile affected design/decision records if implementation changes a documented choice.
 
 - [x] Increment package and lockfile from 1.0.8 to exactly 1.0.9 once.
-- [ ] Run `npm run validate` and require data validation, the complete Node test suite, TypeScript, and Vite production build to pass.
-- [ ] Require Pages deployment success and live `/wps/compare/` plus `/wps/version.json` at 1.0.9.
-- [ ] Live-test malformed/one-country/two-to-four-country URLs, keyboard and pointer add/remove, Back/Forward, maximum-state handling, and existing directory/map navigation.
-- [ ] Run affected responsive QA at 320px, 320px + 200% text, 390px, the existing 640/820/1080 content boundaries as relevant, wide desktop, RTL/long-content stress, and shared header containment on all routes; record any physical-device conditions not exercised.
-- [ ] Mark WPS-026/WPS-T016 verified only after the evidence above is fresh, and leave a precise âResume hereâ state.
+- [x] Run `npm run validate` and require data validation, the complete Node test suite, TypeScript, and Vite production build to pass. Release run `40349916937`: 195 political records, 195 map targets, category totals, 29 point targets, 14/14 tests, TypeScript and Vite all passed.
+- [x] Require Pages deployment success and live `/wps/compare/` plus `/wps/version.json` at 1.0.9. Run `40349916937` deployed successfully; the live manifest returned 1.0.9.
+- [x] Live-test malformed/one-country/two-to-four-country URLs, keyboard and pointer add/remove, Back/Forward, maximum-state handling, and existing directory/map navigation. Verified malformed ordered restore; one-country prefill; keyboard France, pointer Brazil, fourth Canada; Remove/Clear; reversible Back/Forward; transient typing; and shared Directory/Map navigation.
+- [x] Run affected responsive QA at 320px, 320px + 200% text, 390px, the existing 640/820/1080 content boundaries as relevant, wide desktop, RTL/long-content stress, and shared header containment on all routes; record any physical-device conditions not exercised. The only affected breakpoint is 640px: 640/641 both passed. 320px + 200% text, 390, 1366, 1920 RTL, and Directory/Map 320px checks passed with no page-level horizontal overflow. Existing 820/1080 behavior was not changed by this work. Real nonzero safe-area hardware, foldable hinge geometry, physical virtual-keyboard behavior, and manual screen-reader listening remain unverified.
+- [x] Mark WPS-026/WPS-T016 verified only after the evidence above is fresh, and leave a precise “Resume here” state. Automated WCAG 2.2 A/AA scan `4e58aeec-211c-46b5-87be-edeb2e4da340` also reported 0 failures / 0 instances, with the documented automation limitations.
