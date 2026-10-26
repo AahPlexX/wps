@@ -6,6 +6,9 @@
 
 Newest first. One decision fact per line.
 
+- 2026-10-25 — Represent Myanmar's post-2026 operative structure as a military-backed presidential government: President is the top listed office, the current foreign-government roster lists Vice Presidents and no Prime Minister, and continuing military dominance belongs in the explanatory note rather than an obsolete Commander-in-Chief-first hierarchy.
+- 2026-10-25 — Scope the 1.0.7 political-data refresh to the verified Myanmar drift plus resulting category totals; do not add incumbent names to public data, a runtime political API, citation UI, schema changes, or a blanket 195-country rewrite without evidence of additional structural drift.
+
 - 2026-10-24 — Use shrinkable proportional label/value tracks for stacked directory records; a fixed `rem` minimum on the label track collapses the value track under 200% text enlargement at 320px.
 
 - 2026-10-24 — Govern every client-facing WPS surface with `docs/RESPONSIVE_UI.md`; responsive decisions use available space and existing CSS/Tailwind conventions rather than device detection or a new breakpoint framework.

@@ -4,13 +4,16 @@
 
 # Development sources
 
-Political-data as-of date: 2026-10-20. Frontend standards reviewed through 2026-10-24.
+Political-data dataset as-of date: 2026-10-20. Freshness audit: 2026-10-25; WPS-024 is in progress for a verified Myanmar structural correction. Frontend standards reviewed through 2026-10-24.
 
 ## Political and diplomatic reference
 
 - CIA World Leaders: weekly-updated foreign-government directory used to cross-check current leadership structures and unusual executive arrangements.
 - United Nations Protocol and Liaison Service: heads-of-state and heads-of-government records used for diplomatic cross-checking.
 - United Nations country/security records: used for conflict-affected and transitional arrangements where ordinary constitutional descriptions are incomplete.
+- 2026-10-25 Myanmar refresh — CIA World Leaders, Burma (last updated 2026-10-13): https://www.cia.gov/resources/world-leaders/foreign-governments/burma — current roster lists President Min Aung Hlaing, two Vice Presidents, no Prime Minister, and notes that the regime is not formally recognized by the U.S. Government.
+- 2026-10-25 Myanmar refresh — UN Special Envoy on Myanmar, 2026 General Assembly briefing: https://dppa.un.org/en/node/135995 — reports that the military legislature elected Min Aung Hlaing as political leader after the 2026 polls, that he gave up the Commander-in-Chief role, and that the outcome entrenched rather than ended military dominance.
+- 2026-10-25 Myanmar refresh — Reuters, 2026-04-03: https://www.reuters.com/world/asia-pacific/myanmars-junta-chief-set-parliamentary-vote-presidential-bid-2026-04-03/ — independently reports Min Aung Hlaing's election as President and a successor as armed-forces commander.
 
 ## Frontend and deployment
 
