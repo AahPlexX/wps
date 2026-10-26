@@ -6,6 +6,9 @@
 
 Newest first. One decision fact per line.
 
+- 2026-10-26 — Keep WPS-023 and `docs/RESPONSIVE_UI.md` as the single repository-wide responsive authority; the 2026-10-26 administrative refresh expands that standard without creating a duplicate requirement, breakpoint system, or product release.
+- 2026-10-26 — For height-sensitive and emerging viewport features, prefer `min-height`/`svh`, use `dvh` only when dynamic browser chrome matters, and add `interactive-widget`, viewport segments, or container-query behavior only when an evidenced UI need justifies them.
+- 2026-10-26 — Future media and large-data UI must remain fluid and semantically complete; existing Tailwind-vs-shared-CSS conventions stay authoritative rather than introducing a parallel styling architecture.
 - 2026-10-25 — Represent Myanmar's post-2026 operative structure as a military-backed presidential government: President is the top listed office, the current foreign-government roster lists Vice Presidents and no Prime Minister, and continuing military dominance belongs in the explanatory note rather than an obsolete Commander-in-Chief-first hierarchy.
 - 2026-10-25 — Scope the 1.0.7 political-data refresh to the verified Myanmar drift plus resulting category totals; do not add incumbent names to public data, a runtime political API, citation UI, schema changes, or a blanket 195-country rewrite without evidence of additional structural drift.
 

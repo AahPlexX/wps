@@ -34,6 +34,14 @@ This standard applies to every client-facing WPS page, component, dialog, contro
 12. Handle long strings, empty states, and RTL without page-level overflow. Use `overflow-wrap`, logical properties, and shrinkable flex/grid children rather than truncating required content.
 13. No device sniffing, `isTablet`-style layout logic, new responsive dependency, global reset, or new breakpoint framework without an explicit owner-approved architectural change.
 14. Use only features supported by the effective production target or provide a usable fallback within that target.
+15. Use the existing page-level media-query system for page layout. Container queries are allowed only when a reusable component demonstrably needs container-local behavior and the effective browser target supports them; do not introduce them as a second breakpoint system.
+16. Prefer `min-height` for growing structural content. For viewport-relative height, prefer `svh` when content must remain clear of browser UI, use `dvh` sparingly when tracking dynamic browser chrome is materially useful, and do not rely on `vh` alone for critical reachability.
+17. Add `interactive-widget` viewport behavior only when a form or fixed control surface has a demonstrated virtual-keyboard problem. Use `env(viewport-segment-*)` only for an explicitly targeted foldable layout; ordinary foldable, split-screen, and resizable-window behavior must first work through normal flexible reflow.
+18. Future images, video, and embedded media must use fluid sizing such as `max-width: 100%` while preserving intrinsic aspect ratio; do not let media force page-level overflow.
+19. Large datasets must preserve information and function as the available space changes. Performance techniques such as the existing `content-visibility` rows are acceptable only when semantic access, search/filter behavior, and complete data remain intact.
+20. Treat portrait, landscape, split-screen, and window resizing as changes in available width/height, not as device classes. Layout logic must recompute from the available space without user-agent or orientation branching.
+21. In JSX that already uses Tailwind utilities, express local responsive behavior with the project's existing utilities/variants/theme values when they fit; keep shared page/layout rules in the established `src/styles.css` architecture instead of creating parallel component-specific CSS systems.
+22. Keep client markup semantic and standards-based; use W3C/WHATWG/MDN guidance for HTML, CSS, ARIA, and platform behavior when a standards question affects implementation.
 
 ## Verification matrix
 
@@ -47,6 +55,8 @@ Run the relevant portions for every client-facing change and the full matrix for
 - Orientation/resizing: exercise portrait and landscape-shaped viewports or equivalent resizes rather than detecting orientation in code.
 - Content stress: long strings and RTL direction; verify shrink/wrap behavior and logical alignment.
 - Safe areas: inspect all four inset uses whenever `viewport-fit=cover` remains enabled. Real cutout hardware/Safari testing is recorded separately when unavailable to automation.
+- Virtual keyboard/foldables: when a changed surface actually depends on keyboard occlusion or viewport segments, test that behavior on representative real/emulated conditions; otherwise record those physical conditions as unverified rather than adding speculative viewport directives.
+- Large-data/media stress: when affected, verify that long lists remain semantically complete and that media/embeds stay within their containing width while preserving aspect ratio.
 - Dialogs/sticky/fixed UI: include short-height and increased-text tests so actions/focus are not obscured.
 - Accessibility automation may supplement these checks but does not by itself establish full WCAG compliance or replace human assistive-technology review.
 
