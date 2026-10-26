@@ -24,7 +24,7 @@ export default defineConfig({
   plugins: [react(), tailwindcss(), versionManifestPlugin(packageMetadata.version)],
   build: {
     rollupOptions: {
-      input: ['index.html', 'map/index.html'],
+      input: ['index.html', 'map/index.html', 'compare/index.html'],
     },
   },
 })

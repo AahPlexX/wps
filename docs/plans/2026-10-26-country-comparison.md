@@ -46,7 +46,7 @@
 - [x] Add focused tests for ordered valid selection, duplicate/unknown removal, four-country cap, case-insensitive canonical matching, and repeated-parameter round trip.
 - [x] Run the repository workflow/`npm test` and record the intended red caused by the missing comparison helper. Red run: `40348931816`; 12 pre-existing tests passed and only the intentionally absent helper failed to import.
 - [x] Implement only the pure helper needed for those tests.
-- [ ] Require all tests to pass before page code.
+- [x] Require all tests to pass before page code. Helper run: `40349197088` passed the complete validation/build gate before page implementation.
 
 ### Task 2: Build the comparison route and interaction
 
@@ -63,12 +63,12 @@
 - Consumes: comparison URL helper, shared `countries`, `CountryTypeahead`, `CountryDetail`, `SiteHeader`.
 - Produces: `/wps/compare/` with repeated `country=` state and History API restoration.
 
-- [ ] Add the third Vite HTML entry and path dispatch without a router.
-- [ ] Extend `SiteHeader` with a `Compare` destination and narrow-layout wrapping inside the existing 640px rule.
-- [ ] Add the compare page with one add-country typeahead, selected-country Remove/Clear controls, 0–1 selection guidance, 2–4 responsive detail panels, four-country cap, and polite selection status.
-- [ ] Parameterize `CountryDetail` heading IDs so multiple instances remain valid while the map keeps its current default ID.
-- [ ] Add only the compare/header CSS required by the design, using existing tokens and fluid/grid primitives.
-- [ ] Implement push-state add/remove/clear and popstate restore; do not URL-sync transient typing.
+- [x] Add the third Vite HTML entry and path dispatch without a router.
+- [x] Extend `SiteHeader` with a `Compare` destination and narrow-layout wrapping inside the existing 640px rule.
+- [ ] Add the compare page with one add-country typeahead, selected-country Remove/Clear controls, 0â1 selection guidance, 2â4 responsive detail panels, four-country cap, and polite selection status.
+- [x] Parameterize `CountryDetail` heading IDs so multiple instances remain valid while the map keeps its current default ID.
+- [x] Add only the compare/header CSS required by the design, using existing tokens and fluid/grid primitives.
+- [x] Implement push-state add/remove/clear and popstate restore; do not URL-sync transient typing.
 
 ### Task 3: Release, documentation, and full verification
 
@@ -82,9 +82,9 @@
 - Modify: `docs/plans/2026-10-26-country-comparison.md`
 - Reconcile affected design/decision records if implementation changes a documented choice.
 
-- [ ] Increment package and lockfile from 1.0.8 to exactly 1.0.9 once.
+- [x] Increment package and lockfile from 1.0.8 to exactly 1.0.9 once.
 - [ ] Run `npm run validate` and require data validation, the complete Node test suite, TypeScript, and Vite production build to pass.
 - [ ] Require Pages deployment success and live `/wps/compare/` plus `/wps/version.json` at 1.0.9.
 - [ ] Live-test malformed/one-country/two-to-four-country URLs, keyboard and pointer add/remove, Back/Forward, maximum-state handling, and existing directory/map navigation.
 - [ ] Run affected responsive QA at 320px, 320px + 200% text, 390px, the existing 640/820/1080 content boundaries as relevant, wide desktop, RTL/long-content stress, and shared header containment on all routes; record any physical-device conditions not exercised.
-- [ ] Mark WPS-026/WPS-T016 verified only after the evidence above is fresh, and leave a precise “Resume here” state.
+- [ ] Mark WPS-026/WPS-T016 verified only after the evidence above is fresh, and leave a precise âResume hereâ state.

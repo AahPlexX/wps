@@ -1,10 +1,15 @@
 import { GROUP_COLORS, GROUP_LABELS, type CountryRecord } from '../lib/countries'
 
-export function CountryDetail({ country }: { country: CountryRecord }) {
+interface CountryDetailProps {
+  country: CountryRecord
+  headingId?: string
+}
+
+export function CountryDetail({ country, headingId = 'country-detail-title' }: CountryDetailProps) {
   return (
-    <section className="detail-panel" aria-labelledby="country-detail-title">
+    <section className="detail-panel" aria-labelledby={headingId}>
       <div className="flex min-w-0 items-start justify-between gap-3">
-        <h2 id="country-detail-title" className="detail-title">
+        <h2 id={headingId} className="detail-title">
           {country.country}
         </h2>
         <span
