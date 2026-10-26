@@ -40,13 +40,13 @@
 
 - [x] **Step 1:** Change `directoryFiltersFromSearch(search, validStructures)` to validate category against `GROUP_ORDER`, structure against `validStructures`, and keep current group normalization/free-text search.
 - [x] **Step 2:** Move the static government-structure list in `HomePage.tsx` to module scope and pass it to the parser on initial state and `popstate`.
-- [ ] **Step 3:** Run `npm run validate`; require 195 political records, 195 map targets, 29 point targets, all Node tests, TypeScript, and Vite build to pass.
+- [x] **Step 3:** Run `npm run validate`; green run `40345901843` validated 195 political records, 195 map targets, category totals, 29 point targets, 12/12 Node tests, TypeScript, and Vite 8.3.4 build.
 - [x] **Step 4:** Increment package and lock root version exactly once from 1.0.7 to 1.0.8 in the same green implementation release.
 
 ### Task 3: Deploy and verify
 
-- [ ] **Step 1:** Require the exact 1.0.8 Pages workflow to build and deploy successfully.
-- [ ] **Step 2:** Live-smoke the malformed query at 390px: default controls, 195 results, and document width contained.
-- [ ] **Step 3:** Live-smoke a valid category/structure/group deep link at desktop width and confirm URL/control/result coherence.
-- [ ] **Step 4:** Reconcile tracker/tasks/plan evidence, set next significant version to 1.0.9, and confirm only `main` with no open PRs.
+- [x] **Step 1:** Require the exact 1.0.8 Pages workflow to build and deploy successfully. Run `40345901843` completed build and deploy successfully on SHA `64e51e51158df671728c9e6b8cde04e52bf14c83`.
+- [x] **Step 2:** Live-smoke the malformed query at 390px: default controls, 195 results, and document width contained. Verified `All assignments` / `All structures` / `Top assignment`, 195 results, and 390/390 document width while leaving the malformed URL text untouched.
+- [x] **Step 3:** Live-smoke a valid category/structure/group deep link at desktop width and confirm URL/control/result coherence. Verified Monarch + Parliamentary constitutional monarchy + group=system, 29 results under that structure, and 1366/1366 width.
+- [x] **Step 4:** Reconcile tracker/tasks/plan evidence and set next significant version to 1.0.9. Branch/PR inventory is rechecked at final closure.
 - [ ] **Step 5:** Require the final documentation SHA workflow to pass.
