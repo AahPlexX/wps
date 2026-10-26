@@ -14,6 +14,7 @@ Use only `planned`, `in_progress`, `blocked`, `verified`, `awaiting_human`, `pro
 - `docs/TRACKER.md` owns requirement status and fresh verification evidence.
 - `docs/TASKS.md` owns actionable work and the next executable step.
 - `docs/DECISIONS.md` owns current architectural and product decisions, newest first.
+- `docs/adr/*.md` stores long-form rationale and alternatives for accepted architectural decisions when a decision needs more context than the concise decision log; `docs/DECISIONS.md` remains the current-decision index.
 - `docs/SOURCES.md` owns external research provenance used to make implementation or data decisions.
 - `docs/RESPONSIVE_UI.md` owns the permanent repository-wide adaptive-layout and responsive-verification contract for client-facing UI.
 

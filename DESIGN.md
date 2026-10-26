@@ -40,9 +40,9 @@ components:
 
 ## Overview
 
-**Creative North Star: “The Constitutional Field Guide”**
+**Creative North Star: âThe Constitutional Field Guideâ**
 
-The interface borrows from diplomatic atlases, government directories, and constitutional charts. It is quiet, reference-first, and information-dense without looking bureaucratic. One memorable element—the globe—carries the geographic experience while every surrounding control remains disciplined.
+The interface borrows from diplomatic atlases, government directories, and constitutional charts. It is quiet, reference-first, and information-dense without looking bureaucratic. One memorable elementâthe globeâcarries the geographic experience while every surrounding control remains disciplined.
 
 ## Colors
 
@@ -55,6 +55,8 @@ Display type uses an old-style serif stack for country and section hierarchy. UI
 ## Layout
 
 The directory uses wide reference bands and a grouped table that becomes stacked country records when available space is too narrow for useful tabular reading. Stacked records use shrinkable proportional label/value tracks so increased text size cannot reserve the full row for the label and collapse the value track. The map uses a globe/detail split while space permits and stacks globe then detail below the existing content-failure breakpoint. Page gutters are fluid and safe-area aware.
+
+The comparison page uses the same flat reference language: selection controls precede a responsive grid of country-detail panels, with no floating-card treatment. The grid responds to available inline space with shrinkable tracks rather than device-specific breakpoints; one-country prefills remain useful, while two to four selected countries form the comparison set.
 
 Responsive behavior is governed by `docs/RESPONSIVE_UI.md`. The current stylesheet is desktop-first and centralizes its content-driven `max-width` breakpoints at 1080px, 820px, and 640px in `src/styles.css`; do not duplicate those thresholds in component files or add named-device breakpoints. The effective production browser target is Vite 8's unoverridden `baseline-widely-available` target: Chrome 111+, Edge 111+, Firefox 114+, Safari 16.4+, and iOS 16.4+.
 
@@ -78,7 +80,7 @@ The deployment-update prompt uses the native modal `dialog` element, is explicit
 
 - Preserve open reference layouts instead of repeating generic cards.
 - Reserve category colors for data meaning.
-- Keep the 3D globe as the map page’s dominant visual element.
+- Keep the 3D globe as the map pageâs dominant visual element.
 - Keep labels in sentence case and actions explicit.
 - Keep deployment update prompts concise: available version plus Update/Cancel only.
 - Reflow or restack controls/instructions when available space or text scaling makes overlays or fixed rows obscure content.
