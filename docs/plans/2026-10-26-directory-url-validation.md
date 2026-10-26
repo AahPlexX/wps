@@ -34,14 +34,14 @@
 
 - [x] **Step 1:** Record WPS-025/WPS-T015, the live 1.0.7 reproduction, design, and plan.
 - [x] **Step 2:** Add a focused parser test expecting unsupported controlled values to normalize to visible defaults.
-- [ ] **Step 3:** Require the exact red workflow to fail on that new assertion while existing tests/data validation remain green.
+- [x] **Step 3:** Require the exact red workflow to fail on that new assertion while existing tests/data validation remain green. Red run: `40345589821` (11 existing tests passed; only the new parser assertion failed).
 
 ### Task 2: Implement the parser-boundary correction
 
-- [ ] **Step 1:** Change `directoryFiltersFromSearch(search, validStructures)` to validate category against `GROUP_ORDER`, structure against `validStructures`, and keep current group normalization/free-text search.
-- [ ] **Step 2:** Move the static government-structure list in `HomePage.tsx` to module scope and pass it to the parser on initial state and `popstate`.
+- [x] **Step 1:** Change `directoryFiltersFromSearch(search, validStructures)` to validate category against `GROUP_ORDER`, structure against `validStructures`, and keep current group normalization/free-text search.
+- [x] **Step 2:** Move the static government-structure list in `HomePage.tsx` to module scope and pass it to the parser on initial state and `popstate`.
 - [ ] **Step 3:** Run `npm run validate`; require 195 political records, 195 map targets, 29 point targets, all Node tests, TypeScript, and Vite build to pass.
-- [ ] **Step 4:** Increment package and lock root version exactly once from 1.0.7 to 1.0.8 in the same green implementation release.
+- [x] **Step 4:** Increment package and lock root version exactly once from 1.0.7 to 1.0.8 in the same green implementation release.
 
 ### Task 3: Deploy and verify
 

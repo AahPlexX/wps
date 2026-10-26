@@ -50,7 +50,10 @@ test('directory grouping is deterministic and alphabetical within groups', () =>
 })
 
 test('directory URL state round-trips without default noise', () => {
-  const filters = directoryFiltersFromSearch('?q=king&category=Monarch&group=system')
+  const filters = directoryFiltersFromSearch(
+    '?q=king&category=Monarch&group=system',
+    sample.map((country) => country.system),
+  )
   assert.deepEqual(filters, { query: 'king', category: 'Monarch', structure: '', groupBy: 'system' })
   assert.equal(directorySearchFromFilters(filters), 'q=king&category=Monarch&group=system')
 })

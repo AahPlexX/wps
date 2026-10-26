@@ -16,6 +16,7 @@ import { searchEditHistoryMode, type HistoryWriteMode } from '../lib/historyStat
 
 const numberFormat = new Intl.NumberFormat(navigator.language || 'en-US')
 const collator = new Intl.Collator(navigator.language || 'en-US', { sensitivity: 'base' })
+const structures = [...new Set(countries.map((country) => country.system))].sort(collator.compare)
 
 function writeDirectoryUrl(filters: DirectoryFilters, mode: HistoryWriteMode) {
   const search = directorySearchFromFilters(filters)
@@ -25,23 +26,19 @@ function writeDirectoryUrl(filters: DirectoryFilters, mode: HistoryWriteMode) {
 }
 
 export function HomePage() {
-  const [filters, setFilters] = useState(() => directoryFiltersFromSearch(location.search))
+  const [filters, setFilters] = useState(() => directoryFiltersFromSearch(location.search, structures))
   const searchRef = useRef<HTMLInputElement>(null)
   const searchEditActive = useRef(false)
 
   useEffect(() => {
     const onPopState = () => {
       searchEditActive.current = false
-      setFilters(directoryFiltersFromSearch(location.search))
+      setFilters(directoryFiltersFromSearch(location.search, structures))
     }
     addEventListener('popstate', onPopState)
     return () => removeEventListener('popstate', onPopState)
   }, [])
 
-  const structures = useMemo(
-    () => [...new Set(countries.map((country) => country.system))].sort(collator.compare),
-    [],
-  )
   const counts = useMemo(
     () => new Map(GROUP_ORDER.map((group) => [group, countries.filter((c) => c.group === group).length])),
     [],

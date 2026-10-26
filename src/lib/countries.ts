@@ -97,12 +97,17 @@ export function groupCountries(
   }))
 }
 
-export function directoryFiltersFromSearch(search: string): DirectoryFilters {
+export function directoryFiltersFromSearch(
+  search: string,
+  validStructures: readonly string[],
+): DirectoryFilters {
   const params = new URLSearchParams(search)
+  const category = params.get('category') ?? ''
+  const structure = params.get('structure') ?? ''
   return {
     query: params.get('q') ?? '',
-    category: params.get('category') ?? '',
-    structure: params.get('structure') ?? '',
+    category: GROUP_ORDER.includes(category as PoliticalGroup) ? category : '',
+    structure: validStructures.includes(structure) ? structure : '',
     groupBy: params.get('group') === 'system' ? 'system' : 'group',
   }
 }
