@@ -6,6 +6,8 @@
 
 Newest first. One decision fact per line.
 
+- 2026-10-26 — Ignore unsupported directory category/structure/group query values at the URL parser boundary rather than exposing synthetic invalid select options or rewriting browser history; free-text search remains unconstrained.
+- 2026-10-26 — Treat the malformed-directory-deep-link repair as significant release 1.0.8 because it changes user-visible deep-link behavior; add no dependency, router, or canonicalization subsystem.
 - 2026-10-26 — Keep WPS-023 and `docs/RESPONSIVE_UI.md` as the single repository-wide responsive authority; the 2026-10-26 administrative refresh expands that standard without creating a duplicate requirement, breakpoint system, or product release.
 - 2026-10-26 — For height-sensitive and emerging viewport features, prefer `min-height`/`svh`, use `dvh` only when dynamic browser chrome matters, and add `interactive-widget`, viewport segments, or container-query behavior only when an evidenced UI need justifies them.
 - 2026-10-26 — Future media and large-data UI must remain fluid and semantically complete; existing Tailwind-vs-shared-CSS conventions stay authoritative rather than introducing a parallel styling architecture.

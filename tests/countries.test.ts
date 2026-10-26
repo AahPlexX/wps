@@ -54,3 +54,11 @@ test('directory URL state round-trips without default noise', () => {
   assert.deepEqual(filters, { query: 'king', category: 'Monarch', structure: '', groupBy: 'system' })
   assert.equal(directorySearchFromFilters(filters), 'q=king&category=Monarch&group=system')
 })
+
+test('directory URL state ignores unsupported controlled filter values', () => {
+  const filters = directoryFiltersFromSearch(
+    '?q=alpha&category=bogus&structure=bogus&group=bogus',
+    sample.map((country) => country.system),
+  )
+  assert.deepEqual(filters, { query: 'alpha', category: '', structure: '', groupBy: 'group' })
+})
