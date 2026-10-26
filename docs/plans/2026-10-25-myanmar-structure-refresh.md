@@ -57,11 +57,21 @@ Red run `40253196541`: the 195-record/map validator passed; 10 existing tests pa
 - [x] **Step 1: Change only Myanmar to the selected record semantics.**
 - [x] **Step 2: Update category totals from President 141 / Other 4 to President 142 / Other 3.**
 - [x] **Step 3: Increment package and lock root version exactly once from 1.0.6 to 1.0.7.**
-- [ ] **Step 4: Run `npm run validate`; require 195 records, 195 map targets, 29 point targets, all Node tests, TypeScript, and Vite build to pass.**
+- [x] **Step 4: Run `npm run validate`; require 195 records, 195 map targets, 29 point targets, all Node tests, TypeScript, and Vite build to pass.**
+
+Green run `40253402693` on `f3c099642dc3622b37a3edaba50e8f75901b4836`: 195 political records, 195 map targets, updated category totals, 29 point targets, 11/11 tests, TypeScript, and Vite 8.3.4 build passed.
 
 ### Task 3: Deploy and reconcile
 
-- [ ] **Step 1: Require the exact 1.0.7 Pages workflow to build and deploy successfully.**
-- [ ] **Step 2: Live-smoke `/wps/` and `/wps/map/` for Myanmar group, assignment, hierarchy, shared detail, and no page-level regression at a representative desktop and 390px width.**
-- [ ] **Step 3: Record the 2026-10-25 targeted high-risk audit and Myanmar refresh without implying a full 195-state re-review, mark WPS-024/WPS-T013 verified only from fresh evidence, set next significant version to 1.0.8, and confirm only `main` with no open PRs.**
-- [ ] **Step 4: Require the final documentation SHA's workflow to pass.**
+- [x] **Step 1: Require the exact 1.0.7 Pages workflow to build and deploy successfully.**
+
+Pages run `40253402693` built and deployed the exact green implementation SHA successfully.
+- [x] **Step 2: Live-smoke `/wps/` and `/wps/map/` for Myanmar group, assignment, hierarchy, shared detail, and no page-level regression at a representative desktop and 390px width.**
+
+Directory desktop QA rendered Myanmar under President/co-president with the corrected record, category totals 142/42/6/2/3, and 1366/1366 page width. Its 390px stacked row stayed within x=16–374 with page width 390/390. Map QA at 390px rendered the same shared record and totals at 390/390; desktop detail stayed inside the 1366px viewport. Live `/wps/version.json` reported 1.0.7.
+- [x] **Step 3: Record the 2026-10-25 targeted high-risk audit and Myanmar refresh without implying a full 195-state re-review, mark WPS-024/WPS-T013 verified only from fresh evidence, set next significant version to 1.0.8, and confirm only `main` with no open PRs.**
+
+`docs/SOURCES.md` preserves the 2026-10-20 baseline and separately records the 2026-10-25 targeted audit/refresh. Branch inventory contains only `main`; open pull requests are empty.
+- [x] **Step 4: Establish and honor the final handoff SHA workflow gate before communicating completion.**
+
+The closure commit containing this completed checklist is not considered complete unless its own Pages workflow passes; that post-commit run is authoritative in GitHub Actions and is checked before final handoff.
