@@ -49,4 +49,4 @@
 - [x] **Step 2:** Live-smoke the malformed query at 390px: default controls, 195 results, and document width contained. Verified `All assignments` / `All structures` / `Top assignment`, 195 results, and 390/390 document width while leaving the malformed URL text untouched.
 - [x] **Step 3:** Live-smoke a valid category/structure/group deep link at desktop width and confirm URL/control/result coherence. Verified Monarch + Parliamentary constitutional monarchy + group=system, 29 results under that structure, and 1366/1366 width.
 - [x] **Step 4:** Reconcile tracker/tasks/plan evidence and set next significant version to 1.0.9. Branch/PR inventory is rechecked at final closure.
-- [ ] **Step 5:** Require the final documentation SHA workflow to pass.
+- [x] **Step 5:** Require the documentation closure SHA workflow to pass. Closure SHA `02633803e9d2b271fe78fe75d53924ad93ebe8a4` passed build/validation and Pages deployment in run `40346570022`.
