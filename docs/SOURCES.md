@@ -4,7 +4,7 @@
 
 # Development sources
 
-Political-data dataset as-of date: 2026-10-20. Freshness audit: 2026-10-25; WPS-024 is in progress for a verified Myanmar structural correction. Frontend standards reviewed through 2026-10-24.
+Political-data baseline review: 2026-10-20. Targeted high-risk freshness audit: 2026-10-25. Myanmar record refreshed from current CIA/UN/Reuters evidence in the pending 1.0.7 release; this does not claim a new full 195-state review date. Frontend standards reviewed through 2026-10-24.
 
 ## Political and diplomatic reference
 

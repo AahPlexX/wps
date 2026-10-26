@@ -42,7 +42,9 @@
 
 - [x] **Step 1: Record WPS-024/WPS-T013, source evidence, design, and plan.**
 - [x] **Step 2: Add a focused test expecting the verified post-2026 Myanmar record.**
-- [ ] **Step 3: Require the main workflow to fail specifically on the stale Myanmar group/structure assertion.**
+- [x] **Step 3: Require the main workflow to fail specifically on the stale Myanmar group/structure assertion.**
+
+Red run `40253196541`: the 195-record/map validator passed; 10 existing tests passed; the only failure was the focused Myanmar test, with actual `Other / transitional` versus expected `President / co-president`. Deploy was correctly skipped.
 
 ### Task 2: Apply the minimum data correction
 
@@ -52,14 +54,14 @@
 - Modify: `package.json`, `package-lock.json`
 - Modify: affected evidence documentation
 
-- [ ] **Step 1: Change only Myanmar to the selected record semantics.**
-- [ ] **Step 2: Update category totals from President 141 / Other 4 to President 142 / Other 3.**
-- [ ] **Step 3: Increment package and lock root version exactly once from 1.0.6 to 1.0.7.**
+- [x] **Step 1: Change only Myanmar to the selected record semantics.**
+- [x] **Step 2: Update category totals from President 141 / Other 4 to President 142 / Other 3.**
+- [x] **Step 3: Increment package and lock root version exactly once from 1.0.6 to 1.0.7.**
 - [ ] **Step 4: Run `npm run validate`; require 195 records, 195 map targets, 29 point targets, all Node tests, TypeScript, and Vite build to pass.**
 
 ### Task 3: Deploy and reconcile
 
 - [ ] **Step 1: Require the exact 1.0.7 Pages workflow to build and deploy successfully.**
 - [ ] **Step 2: Live-smoke `/wps/` and `/wps/map/` for Myanmar group, assignment, hierarchy, shared detail, and no page-level regression at a representative desktop and 390px width.**
-- [ ] **Step 3: Update `docs/SOURCES.md` dataset as-of date to 2026-10-25, mark WPS-024/WPS-T013 verified only from fresh evidence, set next significant version to 1.0.8, and confirm only `main` with no open PRs.**
+- [ ] **Step 3: Record the 2026-10-25 targeted high-risk audit and Myanmar refresh without implying a full 195-state re-review, mark WPS-024/WPS-T013 verified only from fresh evidence, set next significant version to 1.0.8, and confirm only `main` with no open PRs.**
 - [ ] **Step 4: Require the final documentation SHA's workflow to pass.**

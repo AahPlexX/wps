@@ -32,10 +32,10 @@ for (const feature of features) {
 
 assert.deepEqual(Object.fromEntries(groups), {
   'Supreme / religious leader': 2,
-  'President / co-president': 141,
+  'President / co-president': 142,
   Monarch: 42,
   'Collective / council head': 6,
-  'Other / transitional': 4,
+  'Other / transitional': 3,
 })
 assert.equal(features.filter((feature) => feature.polygons.length === 0).length, 29)
 console.log('Validated 195 political records, 195 map targets, category totals, and 29 point-target microstates.')
